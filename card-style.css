@@ -245,8 +245,9 @@ body {
 }
 
 .glass-card:hover .profile-image {
-    transform: scale(1.05);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+    --radius-lg: 24px;
+    --radius-md: 12px;
+    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-header h1 {
@@ -298,15 +299,15 @@ body {
 .link-item {
     display: flex;
     align-items: center;
-    padding: 22px;
-    background: rgba(255, 255, 255, 0.45);
-    border: 1px solid rgba(255, 255, 255, 0.7);
+    padding: 18px;
+    background: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.8);
     border-radius: var(--radius-md);
     text-decoration: none;
     color: var(--text-main);
     transition: var(--transition);
     position: relative;
-    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
 .link-item:hover {
