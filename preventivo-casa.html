@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preventivo Casa – Gianluca Breccia</title>
+    <meta name="description" content="Richiedi un preventivo polizza casa con Gianluca Breccia.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="background-elements">
+        <div class="blob blob-1" style="background: #10b981;"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+    <main class="container">
+        <div class="glass-panel">
+            <header class="form-header">
+                <div class="logo-wrapper">
+                    <img src="logo-auto-moto.png" alt="Logo Gianluca Breccia" class="company-logo"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="logo-icon fallback" style="display:none;"><i class="fa-solid fa-house-chimney"></i>
+                    </div>
+                </div>
+                <h2>Gianluca Breccia</h2>
+                <h1>Preventivo Casa</h1>
+                <p>Proteggi la tua abitazione con la copertura più adatta</p>
+            </header>
+
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+                <div class="step-indicators">
+                    <div class="step-indicator active" data-step="1"><span class="step-num">1</span><span
+                            class="step-label">Anagrafica</span></div>
+                    <div class="step-indicator" data-step="2"><span class="step-num">2</span><span
+                            class="step-label">Immobile</span></div>
+                    <div class="step-indicator" data-step="3"><span class="step-num">3</span><span
+                            class="step-label">Coperture</span></div>
+                    <div class="step-indicator" data-step="4"><span class="step-num">4</span><span
+                            class="step-label">Conferma</span></div>
+                </div>
+            </div>
+
+            <form action="https://api.web3forms.com/submit" method="POST" id="quote-form">
+                <input type="hidden" name="access_key" value="e238d261-2c69-44d5-8ecd-c191d0777c05">
+                <input type="hidden" name="subject" value="Nuova Richiesta Preventivo Casa">
+                <input type="hidden" name="from_name" value="Preventivatore Casa">
+                <input type="hidden" name="to" value="fveccia@aeaassicurazioni.it">
+                <input type="checkbox" name="botcheck" style="display:none;">
+
+                <div class="form-steps-wrapper">
+                    <!-- STEP 1 -->
+                    <div class="form-step active" id="step-1">
+                        <h2>Dati Personali</h2>
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label for="nome">Nome <span class="required">*</span></label>
+                                <div class="input-wrapper"><i class="fa-regular fa-user"></i><input type="text"
+                                        id="nome" name="Nome" required placeholder="Es. Mario"></div>
+                            </div>
+                            <div class="input-group">
+                                <label for="cognome">Cognome <span class="required">*</span></label>
+                                <div class="input-wrapper"><i class="fa-regular fa-user"></i><input type="text"
+                                        id="cognome" name="Cognome" required placeholder="Es. Rossi"></div>
+                            </div>
+                            <div class="input-group">
+                                <label for="codice_fiscale">Codice Fiscale <span class="required">*</span></label>
+                                <div class="input-wrapper"><i class="fa-solid fa-id-card"></i><input type="text"
+                                        id="codice_fiscale" name="Codice_Fiscale" required
+                                        placeholder="Es. RSSMRA80A01H501U" style="text-transform:uppercase;"
+                                        maxlength="16"></div>
+                            </div>
+                            <div class="input-group">
+                                <label for="email">Email <span class="required">*</span></label>
+                                <div class="input-wrapper"><i class="fa-regular fa-envelope"></i><input type="email"
+                                        id="email" name="Email" required placeholder="mario.rossi@email.it"></div>
+                            </div>
+                            <div class="input-group">
+                                <label for="telefono">Cellulare <span class="required">*</span></label>
+                                <div class="input-wrapper"><i class="fa-solid fa-phone"></i><input type="tel"
+                                        id="telefono" name="Telefono" required placeholder="Es. 333 1234567"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2 -->
+                    <div class="form-step" id="step-2">
+                        <h2>Dati dell'Immobile</h2>
+                        <div class="form-grid">
+                            <div class="input-group full-width">
+                                <label for="indirizzo_immobile">Indirizzo <span class="required">*</span></label>
+                                <div class="input-wrapper"><i class="fa-solid fa-map-pin"></i><input type="text"
+                                        id="indirizzo_immobile" name="Indirizzo_Immobile" required
+                                        placeholder="Es. Via Roma 10, Milano"></div>
+                            </div>
+                            <div class="input-group full-width" style="margin-bottom:20px;">
+                                <label>Tipo Immobile <span class="required">*</span></label>
+                                <div style="display:flex;gap:16px;flex-wrap:wrap;">
+                                    <label class="custom-radio" style="flex:1;min-width:140px;"><input type="radio"
+                                            name="Tipo_Immobile" value="Appartamento" required checked>
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div><i class="fa-solid fa-building"></i>
+                                            <div class="radio-text"><span class="radio-title">Appartamento</span></div>
+                                        </div>
+                                    </label>
+                                    <label class="custom-radio" style="flex:1;min-width:140px;"><input type="radio"
+                                            name="Tipo_Immobile" value="Villa / Casa">
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div><i class="fa-solid fa-house-chimney"></i>
+                                            <div class="radio-text"><span class="radio-title">Villa / Casa</span></div>
+                                        </div>
+                                    </label>
+                                    <label class="custom-radio" style="flex:1;min-width:140px;"><input type="radio"
+                                            name="Tipo_Immobile" value="Ufficio / Locale">
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div><i class="fa-solid fa-store"></i>
+                                            <div class="radio-text"><span class="radio-title">Locale Comm.</span></div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="input-group full-width" style="margin-bottom:20px;">
+                                <label>Utilizzo <span class="required">*</span></label>
+                                <div style="display:flex;gap:16px;flex-wrap:wrap;">
+                                    <label class="custom-radio" style="flex:1;min-width:140px;"><input type="radio"
+                                            name="Utilizzo_Immobile" value="Abitazione principale" required checked>
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div><i class="fa-solid fa-house-user"></i>
+                                            <div class="radio-text"><span class="radio-title">Abitazione
+                                                    principale</span></div>
+                                        </div>
+                                    </label>
+                                    <label class="custom-radio" style="flex:1;min-width:140px;"><input type="radio"
+                                            name="Utilizzo_Immobile" value="Seconda casa">
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div><i class="fa-solid fa-umbrella-beach"></i>
+                                            <div class="radio-text"><span class="radio-title">Seconda casa</span></div>
+                                        </div>
+                                    </label>
+                                    <label class="custom-radio" style="flex:1;min-width:140px;"><input type="radio"
+                                            name="Utilizzo_Immobile" value="Locato a terzi">
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div><i class="fa-solid fa-key"></i>
+                                            <div class="radio-text"><span class="radio-title">In affitto a terzi</span>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="mq">Superficie (mq) <span class="required">*</span></label>
+                                <div class="input-wrapper"><i class="fa-solid fa-ruler-combined"></i><input
+                                        type="number" id="mq" name="Superficie_MQ" required placeholder="Es. 80"
+                                        min="10"></div>
+                            </div>
+                            <div class="input-group">
+                                <label for="valore_immobile">Valore stimato (€) <span class="required">*</span></label>
+                                <div class="input-wrapper"><i class="fa-solid fa-euro-sign"></i><input type="number"
+                                        id="valore_immobile" name="Valore_Immobile" required placeholder="Es. 200000"
+                                        min="10000"></div>
+                            </div>
+                            <div class="input-group">
+                                <label for="valore_contenuto">Valore contenuto arredi (€)</label>
+                                <div class="input-wrapper"><i class="fa-solid fa-couch"></i><input type="number"
+                                        id="valore_contenuto" name="Valore_Contenuto" placeholder="Es. 30000" min="0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3 -->
+                    <div class="form-step" id="step-3">
+                        <h2>Coperture Desiderate</h2>
+                        <p class="subtitle">Seleziona le garanzie di tuo interesse</p>
+                        <div class="checkbox-grid">
+                            <label class="custom-checkbox always-checked"><input type="checkbox"
+                                    name="Copertura_Incendio" value="Si" checked disabled><span
+                                    class="checkmark"></span>
+                                <div class="checkbox-content"><i class="fa-solid fa-fire"></i><span>Incendio e Scoppio
+                                        (base)</span></div>
+                            </label>
+                            <label class="custom-checkbox"><input type="checkbox" name="Copertura_Furto"
+                                    value="Si"><span class="checkmark"></span>
+                                <div class="checkbox-content"><i class="fa-solid fa-mask"></i><span>Furto e
+                                        Rapina</span></div>
+                            </label>
+                            <label class="custom-checkbox"><input type="checkbox" name="Copertura_RC_Familiare"
+                                    value="Si" checked><span class="checkmark"></span>
+                                <div class="checkbox-content"><i class="fa-solid fa-people-group"></i><span>RC
+                                        Capofamiglia</span></div>
+                            </label>
+                            <label class="custom-checkbox"><input type="checkbox" name="Copertura_Acqua_Condotta"
+                                    value="Si"><span class="checkmark"></span>
+                                <div class="checkbox-content"><i class="fa-solid fa-droplet"></i><span>Acqua Condotta /
+                                        Allagamento</span></div>
+                            </label>
+                            <label class="custom-checkbox"><input type="checkbox" name="Copertura_Calamita"
+                                    value="Si"><span class="checkmark"></span>
+                                <div class="checkbox-content"><i class="fa-solid fa-cloud-bolt"></i><span>Calamità
+                                        Naturali</span></div>
+                            </label>
+                            <label class="custom-checkbox"><input type="checkbox" name="Copertura_Terremoto"
+                                    value="Si"><span class="checkmark"></span>
+                                <div class="checkbox-content"><i
+                                        class="fa-solid fa-tower-observation"></i><span>Terremoto</span></div>
+                            </label>
+                            <label class="custom-checkbox"><input type="checkbox" name="Copertura_Tutela_Legale"
+                                    value="Si"><span class="checkmark"></span>
+                                <div class="checkbox-content"><i class="fa-solid fa-scale-balanced"></i><span>Tutela
+                                        Legale</span></div>
+                            </label>
+                            <label class="custom-checkbox"><input type="checkbox" name="Copertura_Assistenza"
+                                    value="Si"><span class="checkmark"></span>
+                                <div class="checkbox-content"><i class="fa-solid fa-wrench"></i><span>Assistenza
+                                        Casa</span></div>
+                            </label>
+                        </div>
+                        <div class="input-group full-width" style="margin-top:24px;">
+                            <label for="note">Note o esigenze particolari</label>
+                            <div class="input-wrapper"><i class="fa-regular fa-comment"></i><textarea id="note"
+                                    name="Note" placeholder="Descrivi eventuali esigenze specifiche..." rows="3"
+                                    style="padding-top:12px;resize:vertical;"></textarea></div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 4 -->
+                    <div class="form-step" id="step-4">
+                        <h2>Conferma e Invio</h2>
+                        <p class="subtitle">Verifica i tuoi dati e invia la richiesta</p>
+                        <div class="precontractual-note"
+                            style="background:#f8fafc;border-left:4px solid #9e1b21;border-radius:0 12px 12px 0;padding:14px 18px;margin-bottom:14px;font-size:0.88rem;color:#4a5568;line-height:1.5;">
+                            <i class="fa-solid fa-circle-info" style="color:#9e1b21;margin-right:6px;"></i>
+                            <strong>Nota precontrattuale:</strong> La compilazione costituisce esclusivamente una
+                            <strong>richiesta di preventivo</strong> e non vincola le parti alla stipula di alcun
+                            contratto assicurativo.
+                        </div>
+                        <div class="privacy-policy">
+                            <label class="custom-checkbox sm"><input type="checkbox" name="Consenso_Privacy" value="Si"
+                                    required><span class="checkmark"></span>
+                                <div class="checkbox-content"><span>Dichiaro di aver letto l'<a
+                                            href="privacy-policy.html" target="_blank"
+                                            style="color:#9e1b21;font-weight:600;">Informativa sulla Privacy</a> (art.
+                                        13 GDPR) e acconsento al trattamento dei miei dati personali. <span
+                                            class="required">*</span></span></div>
+                            </label>
+                        </div>
+                        <div id="success-message" class="hidden">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <h3>Richiesta inviata con successo!</h3>
+                            <p>Abbiamo ricevuto i tuoi dati. Un nostro consulente ti contatterà entro <strong>24-48 ore
+                                    lavorative</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-navigation">
+                    <button type="button" class="btn btn-secondary" id="btn-prev" disabled><i
+                            class="fa-solid fa-arrow-left"></i> Indietro</button>
+                    <button type="button" class="btn btn-primary" id="btn-next">Avanti <i
+                            class="fa-solid fa-arrow-right"></i></button>
+                    <button type="submit" class="btn btn-submit hidden" id="btn-submit">Richiedi Preventivo <i
+                            class="fa-solid fa-paper-plane"></i></button>
+                </div>
+            </form>
+
+            <footer
+                style="margin-top:30px;padding-top:20px;border-top:1px solid #e2e8f0;text-align:center;font-size:0.8rem;color:#a0aec0;line-height:1.6;">
+                <p><i class="fa-solid fa-shield-halved" style="color:#9e1b21;"></i> <strong>Gianluca Breccia</strong>
+                    &ndash; Consulente Assicurativo</p>
+                <p>Iscritto al RUI IVASS n. <strong>[INSERIRE NUMERO RUI]</strong> &ndash; Sez. [A/B/D/E] &bull;
+                    <a href="privacy-policy.html" target="_blank"
+                        style="color:#9e1b21;text-decoration:none;font-weight:600;">Informativa Privacy</a>
+                </p>
+                <p style="margin-top:6px;font-size:0.75rem;">I dati sono trattati ai sensi del Reg. UE 679/2016 (GDPR).
+                </p>
+            </footer>
+        </div>
+    </main>
+    <div class="loading-overlay hidden" id="loading-overlay">
+        <div class="spinner"></div>
+        <p>Invio in corso...</p>
+    </div>
+    <script>
+        let currentStep = 1, totalSteps = 4;
+        function updateProgress() {
+            document.getElementById('progress-bar').style.width = ((currentStep - 1) / (totalSteps - 1) * 100) + '%';
+            document.querySelectorAll('.step-indicator').forEach((el, i) => { el.classList.toggle('active', i < currentStep); el.classList.toggle('completed', i < currentStep - 1); });
+        }
+        function showStep(step) {
+            document.querySelectorAll('.form-step').forEach((el, i) => el.classList.toggle('active', i === step - 1));
+            document.getElementById('btn-prev').disabled = step === 1;
+            document.getElementById('btn-next').classList.toggle('hidden', step === totalSteps);
+            document.getElementById('btn-submit').classList.toggle('hidden', step !== totalSteps);
+            updateProgress();
+        }
+        document.getElementById('btn-next').addEventListener('click', () => { if (currentStep < totalSteps) { currentStep++; showStep(currentStep); } });
+        document.getElementById('btn-prev').addEventListener('click', () => { if (currentStep > 1) { currentStep--; showStep(currentStep); } });
+        document.getElementById('quote-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const overlay = document.getElementById('loading-overlay');
+            overlay.classList.remove('hidden');
+            const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(e.target) });
+            overlay.classList.add('hidden');
+            if (res.ok) {
+                document.querySelector('.form-steps-wrapper').style.display = 'none';
+                document.querySelector('.form-navigation').style.display = 'none';
+                document.querySelector('.progress-container').style.display = 'none';
+                document.getElementById('success-message').classList.remove('hidden');
+            }
+        });
+        showStep(1);
+    </script>
+</body>
+
+</html>

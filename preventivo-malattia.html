@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preventivo Malattia – Gianluca Breccia</title>
+    <meta name="description"
+        content="Richiedi un preventivo per la polizza malattia con Gianluca Breccia, Consulente Assicurativo.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="background-elements">
+        <div class="blob blob-1" style="background: #6366f1;"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="container">
+        <div class="glass-panel">
+            <header class="form-header">
+                <div class="logo-wrapper">
+                    <img src="logo-auto-moto.png" alt="Logo Gianluca Breccia" class="company-logo"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="logo-icon fallback" style="display: none;">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                </div>
+                <h2>Gianluca Breccia</h2>
+                <h1>Preventivo Malattia</h1>
+                <p>Copertura sanitaria su misura per te e la tua famiglia</p>
+            </header>
+
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+                <div class="step-indicators">
+                    <div class="step-indicator active" data-step="1">
+                        <span class="step-num">1</span>
+                        <span class="step-label">Anagrafica</span>
+                    </div>
+                    <div class="step-indicator" data-step="2">
+                        <span class="step-num">2</span>
+                        <span class="step-label">Nucleo</span>
+                    </div>
+                    <div class="step-indicator" data-step="3">
+                        <span class="step-num">3</span>
+                        <span class="step-label">Coperture</span>
+                    </div>
+                    <div class="step-indicator" data-step="4">
+                        <span class="step-num">4</span>
+                        <span class="step-label">Conferma</span>
+                    </div>
+                </div>
+            </div>
+
+            <form action="https://api.web3forms.com/submit" method="POST" id="quote-form">
+                <input type="hidden" name="access_key" value="e238d261-2c69-44d5-8ecd-c191d0777c05">
+                <input type="hidden" name="subject" value="Nuova Richiesta Preventivo Malattia">
+                <input type="hidden" name="from_name" value="Preventivatore Malattia">
+                <input type="hidden" name="to" value="fveccia@aeaassicurazioni.it">
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                <div class="form-steps-wrapper">
+
+                    <!-- STEP 1: Dati Anagrafici -->
+                    <div class="form-step active" id="step-1">
+                        <h2>Dati Personali</h2>
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label for="nome">Nome <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-regular fa-user"></i>
+                                    <input type="text" id="nome" name="Nome" required placeholder="Es. Mario">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="cognome">Cognome <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-regular fa-user"></i>
+                                    <input type="text" id="cognome" name="Cognome" required placeholder="Es. Rossi">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="codice_fiscale">Codice Fiscale <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-id-card"></i>
+                                    <input type="text" id="codice_fiscale" name="Codice_Fiscale" required
+                                        placeholder="Es. RSSMRA80A01H501U" style="text-transform: uppercase;"
+                                        maxlength="16">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="data_nascita">Data di Nascita <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-regular fa-calendar"></i>
+                                    <input type="date" id="data_nascita" name="Data_Di_Nascita" required>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="email">Email <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-regular fa-envelope"></i>
+                                    <input type="email" id="email" name="Email" required
+                                        placeholder="mario.rossi@email.it">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="telefono">Cellulare <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-phone"></i>
+                                    <input type="tel" id="telefono" name="Telefono" required
+                                        placeholder="Es. 333 1234567">
+                                </div>
+                            </div>
+                            <div class="input-group full-width" style="margin-top: 20px; margin-bottom: 10px;">
+                                <label>Tua Professione / Attività <span class="required">*</span></label>
+                                <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px;">
+                                    <label class="custom-radio" style="flex: 1; min-width: 140px;">
+                                        <input type="radio" name="Professione_Contraente" value="Dipendente" required
+                                            checked>
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div>
+                                            <i class="fa-solid fa-briefcase"></i>
+                                            <div class="radio-text"><span class="radio-title">Dipendente</span></div>
+                                        </div>
+                                    </label>
+                                    <label class="custom-radio" style="flex: 1; min-width: 140px;">
+                                        <input type="radio" name="Professione_Contraente" value="Autonomo">
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div>
+                                            <i class="fa-solid fa-user-tie"></i>
+                                            <div class="radio-text"><span class="radio-title">Autonomo</span></div>
+                                        </div>
+                                    </label>
+                                    <label class="custom-radio" style="flex: 1; min-width: 140px;">
+                                        <input type="radio" name="Professione_Contraente" value="Casalingo / Altro">
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div>
+                                            <i class="fa-solid fa-house"></i>
+                                            <div class="radio-text"><span class="radio-title">Altro</span></div>
+                                        </div>
+                                    </label>
+                                    <label class="custom-radio" style="flex: 1; min-width: 140px;">
+                                        <input type="radio" name="Professione_Contraente"
+                                            value="Studente / Minore / Bambino">
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div>
+                                            <i class="fa-solid fa-child"></i>
+                                            <div class="radio-text"><span class="radio-title">Studente</span></div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: Nucleo familiare -->
+                    <div class="form-step" id="step-2">
+                        <h2>Nucleo Familiare</h2>
+                        <div class="form-grid">
+
+                            <div class="input-group full-width" style="margin-bottom: 20px;">
+                                <label>Tipo di Copertura <span class="required">*</span></label>
+                                <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 4px;">
+                                    <label class="custom-radio" style="flex: 1; min-width: 160px;">
+                                        <input type="radio" name="Tipo_Copertura" value="Singola" required checked
+                                            onchange="document.getElementById('familiare-options').style.display='none'; updateFamilyDetails();">
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div>
+                                            <i class="fa-solid fa-user"></i>
+                                            <div class="radio-text">
+                                                <span class="radio-title">Singola</span>
+                                                <span class="radio-desc">Solo per me</span>
+                                            </div>
+                                        </div>
+                                    </label>
+                                    <label class="custom-radio" style="flex: 1; min-width: 160px;">
+                                        <input type="radio" name="Tipo_Copertura" value="Familiare"
+                                            onchange="document.getElementById('familiare-options').style.display='block'; updateFamilyDetails();">
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div>
+                                            <i class="fa-solid fa-people-roof"></i>
+                                            <div class="radio-text">
+                                                <span class="radio-title">Familiare</span>
+                                                <span class="radio-desc">Nucleo familiare</span>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div id="familiare-options" style="display:none; grid-column: span 2;">
+                                <div class="form-grid" style="padding:0;">
+                                    <div class="input-group full-width" style="margin-bottom: 16px;">
+                                        <label>Composizione del nucleo <span class="required">*</span></label>
+                                        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                                            <label class="custom-radio" style="flex: 1; min-width: 130px;">
+                                                <input type="radio" name="Nucleo_Assicurato" value="Coppia"
+                                                    onchange="updateFamilyDetails()">
+                                                <div class="radio-content">
+                                                    <div class="radio-circle"></div>
+                                                    <i class="fa-solid fa-user-group"></i>
+                                                    <div class="radio-text">
+                                                        <span class="radio-title">Coppia</span>
+                                                        <span class="radio-desc">Me e coniuge</span>
+                                                    </div>
+                                                </div>
+                                            </label>
+                                            <label class="custom-radio" style="flex: 1; min-width: 130px;">
+                                                <input type="radio" name="Nucleo_Assicurato" value="Famiglia"
+                                                    onchange="updateFamilyDetails()">
+                                                <div class="radio-content">
+                                                    <div class="radio-circle"></div>
+                                                    <i class="fa-solid fa-people-roof"></i>
+                                                    <div class="radio-text">
+                                                        <span class="radio-title">Famiglia</span>
+                                                        <span class="radio-desc">Con figli</span>
+                                                    </div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div id="family-composition-fields" style="display:none; width: 100%;">
+                                        <div class="form-grid" style="padding:0;">
+                                            <div class="input-group">
+                                                <label for="num_totale">Totale componenti nucleo <span
+                                                        class="required">*</span></label>
+                                                <div class="input-wrapper">
+                                                    <i class="fa-solid fa-users"></i>
+                                                    <select id="num_totale" name="Num_Totale_Componenti"
+                                                        onchange="updateFamilyDetails()"
+                                                        style="padding-left: 48px; height: 54px; background: transparent; border: none; width: 100%; font-family: inherit; font-size: 1rem; color: var(--text-main);">
+                                                        <option value="2">2 persone</option>
+                                                        <option value="3">3 persone</option>
+                                                        <option value="4" selected>4 persone</option>
+                                                        <option value="5">5 persone</option>
+                                                        <option value="6">6 persone</option>
+                                                        <option value="7+">7 o più</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="input-group">
+                                                <label for="num_figli">Di cui figli da assicurare <span
+                                                        class="required">*</span></label>
+                                                <div class="input-wrapper">
+                                                    <i class="fa-solid fa-baby"></i>
+                                                    <select id="num_figli" name="Numero_Figli"
+                                                        onchange="updateFamilyDetails()"
+                                                        style="padding-left: 48px; height: 54px; background: transparent; border: none; width: 100%; font-family: inherit; font-size: 1rem; color: var(--text-main);">
+                                                        <option value="0">Nessuno</option>
+                                                        <option value="1">1 figlio</option>
+                                                        <option value="2" selected>2 figli</option>
+                                                        <option value="3">3 figli</option>
+                                                        <option value="4+">4 o più</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="family-members-details" class="full-width" style="margin-top: 10px;"></div>
+                                </div>
+                            </div>
+
+                            <div class="input-group full-width">
+                                <label for="patologie">Patologie o condizioni preesistenti (facoltativo)</label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-file-medical"></i>
+                                    <textarea id="patologie" name="Patologie_Preesistenti"
+                                        placeholder="Es. ipertensione, diabete, allergie..." rows="3"
+                                        style="padding-top: 12px; resize: vertical;"></textarea>
+                                </div>
+                                <small
+                                    style="display:block; margin-top:5px; color: var(--text-muted); font-size: 0.8rem;">
+                                    Queste informazioni ci permettono di trovare la copertura più adatta alle tue
+                                    esigenze.
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3: Coperture -->
+                    <div class="form-step" id="step-3">
+                        <h2>Coperture Sanitarie</h2>
+                        <p class="subtitle">Seleziona le garanzie di tuo interesse</p>
+                        <div class="checkbox-grid">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="Copertura_Ricovero" value="Si" checked>
+                                <span class="checkmark"></span>
+                                <div class="checkbox-content">
+                                    <i class="fa-solid fa-hospital"></i>
+                                    <span>Ricovero Ospedaliero</span>
+                                </div>
+                            </label>
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="Copertura_Interventi_Chirurgici" value="Si">
+                                <span class="checkmark"></span>
+                                <div class="checkbox-content">
+                                    <i class="fa-solid fa-scalpel"></i>
+                                    <span>Interventi Chirurgici</span>
+                                </div>
+                            </label>
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="Copertura_Visite_Specialistiche" value="Si">
+                                <span class="checkmark"></span>
+                                <div class="checkbox-content">
+                                    <i class="fa-solid fa-user-doctor"></i>
+                                    <span>Visite Specialistiche</span>
+                                </div>
+                            </label>
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="Copertura_Diagnostica" value="Si">
+                                <span class="checkmark"></span>
+                                <div class="checkbox-content">
+                                    <i class="fa-solid fa-microscope"></i>
+                                    <span>Esami Diagnostici</span>
+                                </div>
+                            </label>
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="Copertura_Farmaci" value="Si">
+                                <span class="checkmark"></span>
+                                <div class="checkbox-content">
+                                    <i class="fa-solid fa-pills"></i>
+                                    <span>Farmaci e Terapie</span>
+                                </div>
+                            </label>
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="Copertura_Dentistica" value="Si">
+                                <span class="checkmark"></span>
+                                <div class="checkbox-content">
+                                    <i class="fa-solid fa-tooth"></i>
+                                    <span>Cure Dentistiche</span>
+                                </div>
+                            </label>
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="Copertura_Maternita" value="Si">
+                                <span class="checkmark"></span>
+                                <div class="checkbox-content">
+                                    <i class="fa-solid fa-baby-carriage"></i>
+                                    <span>Maternità</span>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="input-group full-width" style="margin-top: 24px;">
+                            <label for="note">Note o esigenze particolari</label>
+                            <div class="input-wrapper">
+                                <i class="fa-regular fa-comment"></i>
+                                <textarea id="note" name="Note" placeholder="Descrivi eventuali esigenze specifiche..."
+                                    rows="3" style="padding-top: 12px; resize: vertical;"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 4: Conferma -->
+                    <div class="form-step" id="step-4">
+                        <h2>Conferma e Invio</h2>
+                        <p class="subtitle">Verifica i tuoi dati e invia la richiesta</p>
+
+                        <div class="precontractual-note"
+                            style="background:#f8fafc;border-left:4px solid #9e1b21;border-radius:0 12px 12px 0;padding:14px 18px;margin-bottom:20px;font-size:0.88rem;color:#4a5568;line-height:1.5;">
+                            <i class="fa-solid fa-circle-info" style="color:#9e1b21;margin-right:6px;"></i>
+                            <strong>Nota precontrattuale:</strong> La compilazione di questo modulo costituisce
+                            esclusivamente una <strong>richiesta di preventivo</strong> e non vincola le parti alla
+                            stipula di alcun contratto assicurativo.
+                        </div>
+                        <div class="privacy-policy">
+                            <label class="custom-checkbox sm">
+                                <input type="checkbox" name="Consenso_Privacy" value="Si" required>
+                                <span class="checkmark"></span>
+                                <div class="checkbox-content">
+                                    <span>Dichiaro di aver letto l'<a href="privacy-policy.html" target="_blank"
+                                            style="color:#9e1b21;font-weight:600;">Informativa sulla Privacy</a> (art.
+                                        13 GDPR) e acconsento al trattamento dei miei dati personali ai fini
+                                        dell'elaborazione del preventivo. <span class="required">*</span></span>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div id="success-message" class="hidden">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <h3>Richiesta inviata con successo!</h3>
+                            <p>Abbiamo ricevuto i tuoi dati. Un nostro consulente ti contatterà con la migliore offerta
+                                entro <strong>24-48 ore lavorative</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-navigation">
+                    <button type="button" class="btn btn-secondary" id="btn-prev" disabled>
+                        <i class="fa-solid fa-arrow-left"></i> Indietro
+                    </button>
+                    <button type="button" class="btn btn-primary" id="btn-next">
+                        Avanti <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <button type="submit" class="btn btn-submit hidden" id="btn-submit">
+                        Richiedi Preventivo <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+            </form>
+
+            <footer
+                style="margin-top:30px;padding-top:20px;border-top:1px solid #e2e8f0;text-align:center;font-size:0.8rem;color:#a0aec0;line-height:1.6;">
+                <p><i class="fa-solid fa-shield-halved" style="color:#9e1b21;"></i> <strong>Gianluca Breccia</strong>
+                    &ndash; Consulente Assicurativo</p>
+                <p>Iscritto al RUI IVASS n. <strong>[INSERIRE NUMERO RUI]</strong> &ndash; Sez. [A/B/D/E] &bull;
+                    <a href="privacy-policy.html" target="_blank"
+                        style="color:#9e1b21;text-decoration:none;font-weight:600;">Informativa Privacy</a>
+                </p>
+                <p style="margin-top:6px;font-size:0.75rem;">I dati sono trattati ai sensi del Reg. UE 679/2016 (GDPR)
+                    esclusivamente per l'elaborazione della richiesta di preventivo.</p>
+            </footer>
+        </div>
+    </main>
+
+    <div class="loading-overlay hidden" id="loading-overlay">
+        <div class="spinner"></div>
+        <p>Invio in corso...</p>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 4;
+
+        function updateFamilyDetails() {
+            const isFamiliare = document.querySelector('input[name="Tipo_Copertura"]:checked').value === 'Familiare';
+            const nucleoType = document.querySelector('input[name="Nucleo_Assicurato"]:checked')?.value;
+            const compFields = document.getElementById('family-composition-fields');
+            const detailsContainer = document.getElementById('family-members-details');
+
+            detailsContainer.innerHTML = '';
+
+            if (!isFamiliare) {
+                compFields.style.display = 'none';
+                return;
+            }
+
+            if (nucleoType === 'Famiglia') {
+                compFields.style.display = 'block';
+            } else {
+                compFields.style.display = 'none';
+            }
+
+            let membersToRender = [];
+            if (nucleoType === 'Coppia') {
+                membersToRender.push({ label: 'Coniuge / Convivente', prefix: 'Coniuge' });
+            } else if (nucleoType === 'Famiglia') {
+                membersToRender.push({ label: 'Coniuge / Convivente', prefix: 'Coniuge' });
+                const numFigli = parseInt(document.getElementById('num_figli').value) || 0;
+                for (let i = 1; i <= numFigli; i++) {
+                    membersToRender.push({ label: `Figlio ${i}`, prefix: `Figlio${i}` });
+                }
+            }
+
+            membersToRender.forEach(m => {
+                const html = `
+                    <div class="member-dynamic-section" style="margin-top: 25px; padding-top: 20px; border-top: 1px dashed rgba(0,0,0,0.1);">
+                        <h3 style="font-size: 1.1rem; color: var(--primary); margin-bottom: 15px;"><i class="fa-solid fa-user-plus"></i> Dati ${m.label}</h3>
+                        <div class="form-grid" style="padding: 0;">
+                            <div class="input-group">
+                                <label>Nome <span class="required">*</span></label>
+                                <div class="input-wrapper"><i class="fa-regular fa-user"></i><input type="text" name="${m.prefix}_Nome" required placeholder="Nome"></div>
+                            </div>
+                            <div class="input-group">
+                                <label>Cognome <span class="required">*</span></label>
+                                <div class="input-wrapper"><i class="fa-regular fa-user"></i><input type="text" name="${m.prefix}_Cognome" required placeholder="Cognome"></div>
+                            </div>
+                            <div class="input-group">
+                                <label>Codice Fiscale <span class="required">*</span></label>
+                                <div class="input-wrapper"><i class="fa-solid fa-id-card"></i><input type="text" name="${m.prefix}_CF" required placeholder="Codice Fiscale" style="text-transform: uppercase;" maxlength="16"></div>
+                            </div>
+                            <div class="input-group">
+                                <label>Data di Nascita <span class="required">*</span></label>
+                                <div class="input-wrapper"><i class="fa-regular fa-calendar"></i><input type="date" name="${m.prefix}_Data_Nascita" required></div>
+                            </div>
+                            <div class="input-group full-width">
+                                <label>Professione / Stato <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-briefcase"></i>
+                                    <select name="${m.prefix}_Professione" required style="padding-left:48px;height:54px;background:transparent;border:none;width:100%;font-family:inherit;font-size:1rem;color:var(--text-main);">
+                                        <option value="Dipendente">Dipendente</option>
+                                        <option value="Autonomo">Autonomo</option>
+                                        <option value="Casalingo / Altro">Casalingo / Altro</option>
+                                        <option value="Studente / Minore / Bambino">Studente / Minore / Bambino</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+                detailsContainer.insertAdjacentHTML('beforeend', html);
+            });
+        }
+
+        function updateProgress() {
+            const pct = ((currentStep - 1) / (totalSteps - 1)) * 100;
+            document.getElementById('progress-bar').style.width = pct + '%';
+            document.querySelectorAll('.step-indicator').forEach((el, i) => {
+                el.classList.toggle('active', i < currentStep);
+                el.classList.toggle('completed', i < currentStep - 1);
+            });
+        }
+
+        function showStep(step) {
+            document.querySelectorAll('.form-step').forEach((el, i) => {
+                el.classList.toggle('active', i === step - 1);
+            });
+            document.getElementById('btn-prev').disabled = step === 1;
+            document.getElementById('btn-next').classList.toggle('hidden', step === totalSteps);
+            document.getElementById('btn-submit').classList.toggle('hidden', step !== totalSteps);
+            updateProgress();
+        }
+
+        document.getElementById('btn-next').addEventListener('click', () => {
+            if (currentStep < totalSteps) { currentStep++; showStep(currentStep); }
+        });
+        document.getElementById('btn-prev').addEventListener('click', () => {
+            if (currentStep > 1) { currentStep--; showStep(currentStep); }
+        });
+
+        document.getElementById('quote-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const overlay = document.getElementById('loading-overlay');
+            overlay.classList.remove('hidden');
+            const data = new FormData(e.target);
+            const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+            overlay.classList.add('hidden');
+            if (res.ok) {
+                document.querySelector('.form-steps-wrapper').style.display = 'none';
+                document.querySelector('.form-navigation').style.display = 'none';
+                document.querySelector('.progress-container').style.display = 'none';
+                document.getElementById('success-message').classList.remove('hidden');
+            }
+        });
+
+        showStep(1);
+    </script>
+</body>
+
+</html>

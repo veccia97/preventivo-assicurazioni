@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preventivo Vita – Gianluca Breccia</title>
+    <meta name="description"
+        content="Richiedi un preventivo polizza vita con Gianluca Breccia, Consulente Assicurativo.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="background-elements">
+        <div class="blob blob-1" style="background: #8b5cf6;"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+    <main class="container">
+        <div class="glass-panel">
+            <header class="form-header">
+                <div class="logo-wrapper">
+                    <img src="logo-auto-moto.png" alt="Logo Gianluca Breccia" class="company-logo"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="logo-icon fallback" style="display:none;"><i class="fa-solid fa-shield-heart"></i></div>
+                </div>
+                <h2>Gianluca Breccia</h2>
+                <h1>Preventivo Vita</h1>
+                <p>Garantisci un futuro sereno a chi ami</p>
+            </header>
+
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+                <div class="step-indicators">
+                    <div class="step-indicator active" data-step="1"><span class="step-num">1</span><span
+                            class="step-label">Anagrafica</span></div>
+                    <div class="step-indicator" data-step="2"><span class="step-num">2</span><span
+                            class="step-label">Esigenze</span></div>
+                    <div class="step-indicator" data-step="3"><span class="step-num">3</span><span
+                            class="step-label">Coperture</span></div>
+                    <div class="step-indicator" data-step="4"><span class="step-num">4</span><span
+                            class="step-label">Conferma</span></div>
+                </div>
+            </div>
+
+            <form action="https://api.web3forms.com/submit" method="POST" id="quote-form">
+                <input type="hidden" name="access_key" value="e238d261-2c69-44d5-8ecd-c191d0777c05">
+                <input type="hidden" name="subject" value="Nuova Richiesta Preventivo Vita">
+                <input type="hidden" name="from_name" value="Preventivatore Vita">
+                <input type="hidden" name="to" value="fveccia@aeaassicurazioni.it">
+                <input type="checkbox" name="botcheck" style="display:none;">
+
+                <div class="form-steps-wrapper">
+                    <!-- STEP 1 -->
+                    <div class="form-step active" id="step-1">
+                        <h2>Dati Personali</h2>
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label for="nome">Nome <span class="required">*</span></label>
+                                <div class="input-wrapper"><i class="fa-regular fa-user"></i><input type="text"
+                                        id="nome" name="Nome" required placeholder="Es. Mario"></div>
+                            </div>
+                            <div class="input-group">
+                                <label for="cognome">Cognome <span class="required">*</span></label>
+                                <div class="input-wrapper"><i class="fa-regular fa-user"></i><input type="text"
+                                        id="cognome" name="Cognome" required placeholder="Es. Rossi"></div>
+                            </div>
+                            <div class="input-group">
+                                <label for="codice_fiscale">Codice Fiscale <span class="required">*</span></label>
+                                <div class="input-wrapper"><i class="fa-solid fa-id-card"></i><input type="text"
+                                        id="codice_fiscale" name="Codice_Fiscale" required
+                                        placeholder="Es. RSSMRA80A01H501U" style="text-transform:uppercase;"
+                                        maxlength="16"></div>
+                            </div>
+                            <div class="input-group">
+                                <label for="data_nascita">Data di Nascita <span class="required">*</span></label>
+                                <div class="input-wrapper"><i class="fa-regular fa-calendar"></i><input type="date"
+                                        id="data_nascita" name="Data_Di_Nascita" required></div>
+                            </div>
+                            <div class="input-group">
+                                <label for="email">Email <span class="required">*</span></label>
+                                <div class="input-wrapper"><i class="fa-regular fa-envelope"></i><input type="email"
+                                        id="email" name="Email" required placeholder="mario.rossi@email.it"></div>
+                            </div>
+                            <div class="input-group">
+                                <label for="telefono">Cellulare <span class="required">*</span></label>
+                                <div class="input-wrapper"><i class="fa-solid fa-phone"></i><input type="tel"
+                                        id="telefono" name="Telefono" required placeholder="Es. 333 1234567"></div>
+                            </div>
+                            <div class="input-group full-width" style="margin-bottom:20px;">
+                                <label>Stato di salute <span class="required">*</span></label>
+                                <div style="display:flex;gap:16px;flex-wrap:wrap;">
+                                    <label class="custom-radio" style="flex:1;min-width:140px;"><input type="radio"
+                                            name="Stato_Salute" value="Ottimo" required checked>
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div><i class="fa-solid fa-face-smile-beam"></i>
+                                            <div class="radio-text"><span class="radio-title">Ottimo</span></div>
+                                        </div>
+                                    </label>
+                                    <label class="custom-radio" style="flex:1;min-width:140px;"><input type="radio"
+                                            name="Stato_Salute" value="Buono">
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div><i class="fa-solid fa-face-smile"></i>
+                                            <div class="radio-text"><span class="radio-title">Buono</span></div>
+                                        </div>
+                                    </label>
+                                    <label class="custom-radio" style="flex:1;min-width:140px;"><input type="radio"
+                                            name="Stato_Salute" value="Con patologie">
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div><i class="fa-solid fa-file-medical"></i>
+                                            <div class="radio-text"><span class="radio-title">Con patologie</span></div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2 -->
+                    <div class="form-step" id="step-2">
+                        <h2>Esigenze e Obiettivi</h2>
+                        <div class="form-grid">
+                            <div class="input-group full-width" style="margin-bottom:20px;">
+                                <label>Scopo principale della polizza <span class="required">*</span></label>
+                                <div style="display:flex;gap:16px;flex-wrap:wrap;">
+                                    <label class="custom-radio" style="flex:1;min-width:150px;"><input type="radio"
+                                            name="Scopo_Polizza" value="Protezione famiglia in caso di decesso" required
+                                            checked>
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div><i class="fa-solid fa-people-roof"></i>
+                                            <div class="radio-text"><span class="radio-title">Protezione
+                                                    famiglia</span><span class="radio-desc">Tutela in caso di
+                                                    decesso</span></div>
+                                        </div>
+                                    </label>
+                                    <label class="custom-radio" style="flex:1;min-width:150px;"><input type="radio"
+                                            name="Scopo_Polizza" value="Risparmio e investimento a lungo termine">
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div><i class="fa-solid fa-piggy-bank"></i>
+                                            <div class="radio-text"><span class="radio-title">Risparmio /
+                                                    Investimento</span><span class="radio-desc">Accumulo a lungo
+                                                    termine</span></div>
+                                        </div>
+                                    </label>
+                                    <label class="custom-radio" style="flex:1;min-width:150px;"><input type="radio"
+                                            name="Scopo_Polizza" value="Copertura mutuo / debiti">
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div><i
+                                                class="fa-solid fa-house-circle-check"></i>
+                                            <div class="radio-text"><span class="radio-title">Copertura
+                                                    mutuo</span><span class="radio-desc">Protezione debiti
+                                                    residui</span></div>
+                                        </div>
+                                    </label>
+                                    <label class="custom-radio" style="flex:1;min-width:150px;"><input type="radio"
+                                            name="Scopo_Polizza" value="Pianificazione pensionistica">
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div><i class="fa-solid fa-umbrella"></i>
+                                            <div class="radio-text"><span class="radio-title">Pensione
+                                                    Integrativa</span><span class="radio-desc">Pianificazione
+                                                    futuro</span></div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="durata">Durata desiderata (anni) <span class="required">*</span></label>
+                                <div class="input-wrapper"><i class="fa-solid fa-hourglass-half"></i>
+                                    <select id="durata" name="Durata_Anni" required
+                                        style="padding-left:48px;height:54px;background:transparent;border:none;width:100%;font-family:inherit;font-size:1rem;color:var(--text-main);">
+                                        <option value="">Seleziona...</option>
+                                        <option value="5">5 anni</option>
+                                        <option value="10">10 anni</option>
+                                        <option value="15">15 anni</option>
+                                        <option value="20">20 anni</option>
+                                        <option value="25">25 anni</option>
+                                        <option value="30+">30 anni o più</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="capitale">Capitale assicurato desiderato (€)</label>
+                                <div class="input-wrapper"><i class="fa-solid fa-euro-sign"></i><input type="number"
+                                        id="capitale" name="Capitale_Desiderato" placeholder="Es. 150000" min="10000">
+                                </div>
+                            </div>
+                            <div class="input-group full-width">
+                                <label for="beneficiario">Beneficiario principale</label>
+                                <div class="input-wrapper"><i class="fa-solid fa-heart"></i><input type="text"
+                                        id="beneficiario" name="Beneficiario"
+                                        placeholder="Es. coniuge, figli, erede legittimo..."></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3 -->
+                    <div class="form-step" id="step-3">
+                        <h2>Coperture Aggiuntive</h2>
+                        <p class="subtitle">Seleziona garanzie complementari da includere</p>
+                        <div class="checkbox-grid">
+                            <label class="custom-checkbox always-checked"><input type="checkbox"
+                                    name="Copertura_Decesso" value="Si" checked disabled><span class="checkmark"></span>
+                                <div class="checkbox-content"><i class="fa-solid fa-cross"></i><span>Copertura Decesso
+                                        (inclusa)</span></div>
+                            </label>
+                            <label class="custom-checkbox"><input type="checkbox" name="Copertura_Invalidita"
+                                    value="Si"><span class="checkmark"></span>
+                                <div class="checkbox-content"><i class="fa-solid fa-wheelchair"></i><span>Invalidità
+                                        Totale e Permanente</span></div>
+                            </label>
+                            <label class="custom-checkbox"><input type="checkbox" name="Copertura_Malattie_Gravi"
+                                    value="Si"><span class="checkmark"></span>
+                                <div class="checkbox-content"><i
+                                        class="fa-solid fa-heart-circle-exclamation"></i><span>Malattie Gravi (Dread
+                                        Disease)</span></div>
+                            </label>
+                            <label class="custom-checkbox"><input type="checkbox" name="Copertura_Non_Autosufficienza"
+                                    value="Si"><span class="checkmark"></span>
+                                <div class="checkbox-content"><i class="fa-solid fa-hand-holding-medical"></i><span>Non
+                                        Autosufficienza (LTC)</span></div>
+                            </label>
+                            <label class="custom-checkbox"><input type="checkbox" name="Copertura_Infortuni"
+                                    value="Si"><span class="checkmark"></span>
+                                <div class="checkbox-content"><i
+                                        class="fa-solid fa-user-injured"></i><span>Infortuni</span></div>
+                            </label>
+                        </div>
+                        <div class="input-group full-width" style="margin-top:24px;">
+                            <label for="note">Note o esigenze particolari</label>
+                            <div class="input-wrapper"><i class="fa-regular fa-comment"></i><textarea id="note"
+                                    name="Note" placeholder="Descrivi eventuali esigenze specifiche o patologie note..."
+                                    rows="3" style="padding-top:12px;resize:vertical;"></textarea></div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 4 -->
+                    <div class="form-step" id="step-4">
+                        <h2>Conferma e Invio</h2>
+                        <p class="subtitle">Verifica i tuoi dati e invia la richiesta</p>
+                        <div class="precontractual-note"
+                            style="background:#f8fafc;border-left:4px solid #9e1b21;border-radius:0 12px 12px 0;padding:14px 18px;margin-bottom:14px;font-size:0.88rem;color:#4a5568;line-height:1.5;">
+                            <i class="fa-solid fa-circle-info" style="color:#9e1b21;margin-right:6px;"></i>
+                            <strong>Nota precontrattuale:</strong> La compilazione costituisce esclusivamente una
+                            <strong>richiesta di preventivo</strong> e non vincola le parti alla stipula di alcun
+                            contratto assicurativo.
+                        </div>
+                        <div class="privacy-policy">
+                            <label class="custom-checkbox sm"><input type="checkbox" name="Consenso_Privacy" value="Si"
+                                    required><span class="checkmark"></span>
+                                <div class="checkbox-content"><span>Dichiaro di aver letto l'<a
+                                            href="privacy-policy.html" target="_blank"
+                                            style="color:#9e1b21;font-weight:600;">Informativa sulla Privacy</a> (art.
+                                        13 GDPR) e acconsento al trattamento dei miei dati personali. <span
+                                            class="required">*</span></span></div>
+                            </label>
+                        </div>
+                        <div id="success-message" class="hidden">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <h3>Richiesta inviata con successo!</h3>
+                            <p>Abbiamo ricevuto i tuoi dati. Un nostro consulente ti contatterà con la migliore offerta
+                                entro <strong>24-48 ore lavorative</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-navigation">
+                    <button type="button" class="btn btn-secondary" id="btn-prev" disabled><i
+                            class="fa-solid fa-arrow-left"></i> Indietro</button>
+                    <button type="button" class="btn btn-primary" id="btn-next">Avanti <i
+                            class="fa-solid fa-arrow-right"></i></button>
+                    <button type="submit" class="btn btn-submit hidden" id="btn-submit">Richiedi Preventivo <i
+                            class="fa-solid fa-paper-plane"></i></button>
+                </div>
+            </form>
+
+            <footer
+                style="margin-top:30px;padding-top:20px;border-top:1px solid #e2e8f0;text-align:center;font-size:0.8rem;color:#a0aec0;line-height:1.6;">
+                <p><i class="fa-solid fa-shield-halved" style="color:#9e1b21;"></i> <strong>Gianluca Breccia</strong>
+                    &ndash; Consulente Assicurativo</p>
+                <p>Iscritto al RUI IVASS n. <strong>[INSERIRE NUMERO RUI]</strong> &ndash; Sez. [A/B/D/E] &bull;
+                    <a href="privacy-policy.html" target="_blank"
+                        style="color:#9e1b21;text-decoration:none;font-weight:600;">Informativa Privacy</a>
+                </p>
+                <p style="margin-top:6px;font-size:0.75rem;">I dati sono trattati ai sensi del Reg. UE 679/2016 (GDPR).
+                </p>
+            </footer>
+        </div>
+    </main>
+    <div class="loading-overlay hidden" id="loading-overlay">
+        <div class="spinner"></div>
+        <p>Invio in corso...</p>
+    </div>
+    <script>
+        let currentStep = 1, totalSteps = 4;
+        function updateProgress() {
+            document.getElementById('progress-bar').style.width = ((currentStep - 1) / (totalSteps - 1) * 100) + '%';
+            document.querySelectorAll('.step-indicator').forEach((el, i) => { el.classList.toggle('active', i < currentStep); el.classList.toggle('completed', i < currentStep - 1); });
+        }
+        function showStep(step) {
+            document.querySelectorAll('.form-step').forEach((el, i) => el.classList.toggle('active', i === step - 1));
+            document.getElementById('btn-prev').disabled = step === 1;
+            document.getElementById('btn-next').classList.toggle('hidden', step === totalSteps);
+            document.getElementById('btn-submit').classList.toggle('hidden', step !== totalSteps);
+            updateProgress();
+        }
+        document.getElementById('btn-next').addEventListener('click', () => { if (currentStep < totalSteps) { currentStep++; showStep(currentStep); } });
+        document.getElementById('btn-prev').addEventListener('click', () => { if (currentStep > 1) { currentStep--; showStep(currentStep); } });
+        document.getElementById('quote-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const overlay = document.getElementById('loading-overlay');
+            overlay.classList.remove('hidden');
+            const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(e.target) });
+            overlay.classList.add('hidden');
+            if (res.ok) {
+                document.querySelector('.form-steps-wrapper').style.display = 'none';
+                document.querySelector('.form-navigation').style.display = 'none';
+                document.querySelector('.progress-container').style.display = 'none';
+                document.getElementById('success-message').classList.remove('hidden');
+            }
+        });
+        showStep(1);
+    </script>
+</body>
+
+</html>

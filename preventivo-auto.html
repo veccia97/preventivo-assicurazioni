@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Richiesta Preventivo Auto</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="background-elements">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="container">
+        <div class="glass-panel">
+            <header class="form-header">
+                <div class="logo-wrapper">
+                    <img src="logo-auto-moto.png" alt="Auto Moto Logo" class="company-logo"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="logo-icon fallback" style="display: none;">
+                        <i class="fa-solid fa-car-side"></i>
+                    </div>
+                </div>
+                <h2>Gianluca Breccia</h2>
+                <h1>Calcola il tuo Preventivo Auto</h1>
+                <p>Compila i dati per ricevere la nostra migliore offerta</p>
+            </header>
+
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+                <div class="step-indicators">
+                    <div class="step-indicator active" data-step="1">
+                        <span class="step-num">1</span>
+                        <span class="step-label">Anagrafica</span>
+                    </div>
+                    <div class="step-indicator" data-step="2">
+                        <span class="step-num">2</span>
+                        <span class="step-label">Veicolo</span>
+                    </div>
+                    <div class="step-indicator" data-step="3">
+                        <span class="step-num">3</span>
+                        <span class="step-label">Assicurazione</span>
+                    </div>
+                    <div class="step-indicator" data-step="4">
+                        <span class="step-num">4</span>
+                        <span class="step-label">Garanzie</span>
+                    </div>
+                    <div class="step-indicator" data-step="5">
+                        <span class="step-num">5</span>
+                        <span class="step-label">Conferma</span>
+                    </div>
+                </div>
+            </div>
+
+            <form action="https://api.web3forms.com/submit" method="POST" id="quote-form" enctype="multipart/form-data">
+                <!-- Chiave di Web3Forms per inviare le mail a fveccia@aeaassicurazioni.it -->
+                <input type="hidden" name="access_key" value="e238d261-2c69-44d5-8ecd-c191d0777c05">
+                <input type="hidden" name="subject" value="Nuova Richiesta Preventivo Auto con Allegato">
+                <input type="hidden" name="from_name" value="Preventivatore Web">
+                <input type="hidden" name="to" value="fveccia@aeaassicurazioni.it">
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                <!-- Form Steps Container -->
+                <div class="form-steps-wrapper">
+
+                    <!-- STEP 1: Dati Anagrafici -->
+                    <div class="form-step active" id="step-1">
+                        <h2>Dati Personali</h2>
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label for="nome">Nome <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-regular fa-user"></i>
+                                    <input type="text" id="nome" name="Nome" required placeholder="Es. Mario">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="cognome">Cognome <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-regular fa-user"></i>
+                                    <input type="text" id="cognome" name="Cognome" required placeholder="Es. Rossi">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="codice_fiscale">Codice Fiscale <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-id-card"></i>
+                                    <input type="text" id="codice_fiscale" name="Codice_Fiscale" required
+                                        placeholder="Es. RSSMRA80A01H501U" style="text-transform: uppercase;"
+                                        maxlength="16">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="data_nascita">Data di Nascita <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-regular fa-calendar"></i>
+                                    <input type="date" id="data_nascita" name="Data_Di_Nascita" required>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="provincia">Provincia <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-map"></i>
+                                    <input type="text" id="provincia" name="Provincia" required
+                                        placeholder="Es. RM, MI, NA" style="text-transform: uppercase;" maxlength="2">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="indirizzo_residenza">Indirizzo di Residenza <span
+                                        class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-map-pin"></i>
+                                    <input type="text" id="indirizzo_residenza" name="Indirizzo_Residenza" required
+                                        placeholder="Es. Via Roma 10, Milano">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="email">Email <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-regular fa-envelope"></i>
+                                    <input type="email" id="email" name="Email" required
+                                        placeholder="es. mario.rossi@email.it">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="telefono">Cellulare <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-phone"></i>
+                                    <input type="tel" id="telefono" name="Telefono" required
+                                        placeholder="Es. 333 1234567">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: Dati Veicolo -->
+                    <div class="form-step" id="step-2">
+                        <h2>Dati del Veicolo</h2>
+                        <div class="form-grid">
+                            <div class="input-group full-width" style="margin-bottom: 20px;">
+                                <label>Tipo di Veicolo <span class="required">*</span></label>
+                                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                                    <label class="custom-radio" style="flex: 1; min-width: 150px;">
+                                        <input type="radio" name="Tipo_Veicolo" value="Autovettura" required checked>
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div>
+                                            <i class="fa-solid fa-car"></i>
+                                            <div class="radio-text">
+                                                <span class="radio-title">Autovettura</span>
+                                            </div>
+                                        </div>
+                                    </label>
+                                    <label class="custom-radio" style="flex: 1; min-width: 150px;">
+                                        <input type="radio" name="Tipo_Veicolo" value="Motociclo">
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div>
+                                            <i class="fa-solid fa-motorcycle"></i>
+                                            <div class="radio-text">
+                                                <span class="radio-title">Motociclo</span>
+                                            </div>
+                                        </div>
+                                    </label>
+                                    <label class="custom-radio" style="flex: 1; min-width: 150px;">
+                                        <input type="radio" name="Tipo_Veicolo" value="Ciclomotore">
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div>
+                                            <i class="fa-solid fa-moped"></i>
+                                            <div class="radio-text">
+                                                <span class="radio-title">Ciclomotore</span>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="input-group full-width">
+                                <label for="targa">Targa Veicolo <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-car-rear"></i>
+                                    <input type="text" id="targa" name="Targa" required placeholder="Es. AA 000 AA"
+                                        style="text-transform: uppercase; letter-spacing: 2px;" maxlength="7"
+                                        pattern="[A-Za-z]{2}[0-9]{3}[A-Za-z]{2}"
+                                        title="Inserisci una targa auto valida (es. AA000AA)">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="marca">Marca <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-car"></i>
+                                    <input type="text" id="marca" name="Marca" required placeholder="Es. Fiat">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="modello">Modello <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-car-side"></i>
+                                    <input type="text" id="modello" name="Modello" required placeholder="Es. Panda">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="mese_anno_immatricolazione">Immatricolazione (mm/aaaa) <span
+                                        class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fa-regular fa-calendar-days"></i>
+                                    <input type="text" id="mese_anno_immatricolazione" name="Mese_Anno_Immatricolazione"
+                                        required placeholder="Es. 05/2021" pattern="(0[1-9]|1[0-2])\/[0-9]{4}"
+                                        title="Inserisci il formato corretto: MM/AAAA (es. 05/2021)" maxlength="7">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="allestimento">Allestimento (Optional)</label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-sliders"></i>
+                                    <input type="text" id="allestimento" name="Allestimento_Veicolo"
+                                        placeholder="Es. 1.2 Lounge">
+                                </div>
+                                <small
+                                    style="display: block; margin-top: 5px; color: var(--text-muted); font-size: 0.8rem; line-height: 1.3;">
+                                    *Fondamentale se intendi richiedere la copertura <strong>Furto e Incendio</strong>.
+                                </small>
+                            </div>
+
+                            <!-- Allegato Libretto -->
+                            <div class="input-group full-width">
+                                <label for="libretto">Allega foto del Libretto (Facoltativo)</label>
+                                <div class="file-upload-wrapper">
+                                    <div class="file-upload-box">
+                                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                                        <span>Clicca o trascina qui la foto del libretto</span>
+                                        <small>(Max 5MB - JPG, PNG o PDF)</small>
+                                        <input type="file" id="libretto" name="Allegato_Libretto"
+                                            accept="image/*, application/pdf" capture="environment">
+                                    </div>
+                                    <div id="file-name-display" class="file-name-display hidden">
+                                        <i class="fa-solid fa-file-check"></i> <span id="file-name-text">Nessun file
+                                            selezionato</span>
+                                        <button type="button" id="remove-file-btn" title="Rimuovi file"><i
+                                                class="fa-solid fa-xmark"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3: Stato Assicurativo -->
+                    <div class="form-step" id="step-3">
+                        <h2>Stato Assicurativo</h2>
+                        <p class="subtitle">Aiutaci a recuperare il tuo Attestato di Rischio (ATR)</p>
+
+                        <div class="input-group full-width" style="margin-bottom: 20px;">
+                            <label>Situazione Assicurativa <span class="required">*</span></label>
+
+                            <label class="custom-radio" style="margin-bottom: 15px; display: block; height: auto;">
+                                <input type="radio" name="Situazione_Assicurativa" value="Rinnovo o Cambio Compagnia"
+                                    required checked>
+                                <span class="radio-content" style="align-items: flex-start; padding: 15px;">
+                                    <span class="radio-circle" style="margin-top: 2px;"></span>
+                                    <i class="fa-solid fa-file-contract" style="margin-top: 2px;"></i>
+                                    <span style="display: flex; flex-direction: column;">
+                                        <strong>Veicolo già assicurato</strong>
+                                        <small
+                                            style="color: var(--text-muted); font-size: 0.85rem; margin-top: 4px; line-height: 1.3; font-weight: normal;">Rinnovo
+                                            polizza o cambio compagnia di un veicolo già di tua proprietà.</small>
+                                    </span>
+                                </span>
+                            </label>
+
+                            <label class="custom-radio" style="margin-bottom: 15px; display: block; height: auto;">
+                                <input type="radio" name="Situazione_Assicurativa"
+                                    value="Acquisto Veicolo - Legge Bersani">
+                                <span class="radio-content" style="align-items: flex-start; padding: 15px;">
+                                    <span class="radio-circle" style="margin-top: 2px;"></span>
+                                    <i class="fa-solid fa-users" style="margin-top: 2px;"></i>
+                                    <span style="display: flex; flex-direction: column;">
+                                        <strong>Nuovo acquisto (Legge Bersani)</strong>
+                                        <small
+                                            style="color: var(--text-muted); font-size: 0.85rem; margin-top: 4px; line-height: 1.3; font-weight: normal;">Acquisto
+                                            veicolo (nuovo/usato) ed ereditarietà della classe di merito di un familiare
+                                            convivente. <br><em>(NB: Il veicolo da cui si eredita la classe deve avere
+                                                una polizza attiva)</em></small>
+                                    </span>
+                                </span>
+                            </label>
+
+                            <label class="custom-radio" style="margin-bottom: 15px; display: block; height: auto;">
+                                <input type="radio" name="Situazione_Assicurativa" value="Sostituzione Veicolo">
+                                <span class="radio-content" style="align-items: flex-start; padding: 15px;">
+                                    <span class="radio-circle" style="margin-top: 2px;"></span>
+                                    <i class="fa-solid fa-car-on" style="margin-top: 2px;"></i>
+                                    <span style="display: flex; flex-direction: column;">
+                                        <strong>Sostituzione veicolo</strong>
+                                        <small
+                                            style="color: var(--text-muted); font-size: 0.85rem; margin-top: 4px; line-height: 1.3; font-weight: normal;">Acquisto
+                                            veicolo in sostituzione ad uno appena venduto, rottamato, o esportato
+                                            all'estero.</small>
+                                    </span>
+                                </span>
+                            </label>
+                        </div>
+
+                        <div class="input-group full-width hidden" id="targa-riferimento-group">
+                            <label for="targa_riferimento">Targa di Riferimento (da cui ereditare la classe) <span
+                                    class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-car-side"></i>
+                                <input type="text" id="targa_riferimento" name="Targa_Di_Riferimento"
+                                    placeholder="Es. ZZ 999 ZZ" style="text-transform: uppercase;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 4: Garanzie -->
+                    <div class="form-step" id="step-4">
+                        <h2>Garanzie Desiderate</h2>
+                        <p class="subtitle">Seleziona le coperture che vuoi includere (La RCA base è sempre inclusa)</p>
+
+                        <div class="checkbox-grid">
+                            <label class="custom-checkbox always-checked">
+                                <input type="checkbox" name="Garanzia_RCA" value="Si" checked disabled>
+                                <span class="checkmark"></span>
+                                <div class="checkbox-content">
+                                    <i class="fa-solid fa-car-burst"></i>
+                                    <span>RCA (Obbligatoria)</span>
+                                </div>
+                            </label>
+
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="Garanzia_Furto_Incendio" value="Si">
+                                <span class="checkmark"></span>
+                                <div class="checkbox-content">
+                                    <i class="fa-solid fa-fire"></i>
+                                    <span>Furto e Incendio</span>
+                                </div>
+                            </label>
+
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="Garanzia_Kasko" value="Si">
+                                <span class="checkmark"></span>
+                                <div class="checkbox-content">
+                                    <i class="fa-solid fa-car-on"></i>
+                                    <span>Kasko Completa</span>
+                                </div>
+                            </label>
+
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="Garanzia_Mini_Kasko" value="Si">
+                                <span class="checkmark"></span>
+                                <div class="checkbox-content">
+                                    <i class="fa-solid fa-car-burst"></i>
+                                    <span>Mini Kasko (Collisione)</span>
+                                </div>
+                            </label>
+
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="Garanzia_Cristalli" value="Si">
+                                <span class="checkmark"></span>
+                                <div class="checkbox-content">
+                                    <i class="fa-solid fa-maximize"></i>
+                                    <span>Cristalli</span>
+                                </div>
+                            </label>
+
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="Garanzia_Infortuni_Conducente" value="Si">
+                                <span class="checkmark"></span>
+                                <div class="checkbox-content">
+                                    <i class="fa-solid fa-user-injured"></i>
+                                    <span>Infortuni Conducente</span>
+                                </div>
+                            </label>
+
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="Garanzia_Assistenza_Stradale" value="Si">
+                                <span class="checkmark"></span>
+                                <div class="checkbox-content">
+                                    <i class="fa-solid fa-truck-pickup"></i>
+                                    <span>Assistenza Stradale</span>
+                                </div>
+                            </label>
+
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="Garanzia_Tutela_Legale" value="Si">
+                                <span class="checkmark"></span>
+                                <div class="checkbox-content">
+                                    <i class="fa-solid fa-scale-balanced"></i>
+                                    <span>Tutela Legale</span>
+                                </div>
+                            </label>
+
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="Garanzia_Eventi_Naturali" value="Si">
+                                <span class="checkmark"></span>
+                                <div class="checkbox-content">
+                                    <i class="fa-solid fa-cloud-bolt"></i>
+                                    <span>Eventi Naturali / Grandine</span>
+                                </div>
+                            </label>
+
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="Garanzia_Atti_Vandalici" value="Si">
+                                <span class="checkmark"></span>
+                                <div class="checkbox-content">
+                                    <i class="fa-solid fa-hammer"></i>
+                                    <span>Atti Vandalici</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- STEP 5: Frazionamento e Conferma -->
+                    <div class="form-step" id="step-5">
+                        <h2>Frazionamento del Premio</h2>
+                        <p class="subtitle">Come preferisci pagare la tua polizza?</p>
+
+                        <div class="radio-group">
+                            <label class="custom-radio">
+                                <input type="radio" name="Frazionamento" value="Annuale" required>
+                                <div class="radio-content">
+                                    <div class="radio-circle"></div>
+                                    <i class="fa-solid fa-calendar"></i>
+                                    <div class="radio-text">
+                                        <span class="radio-title">Annuale</span>
+                                        <span class="radio-desc">Un unico pagamento</span>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <label class="custom-radio">
+                                <input type="radio" name="Frazionamento" value="Semestrale">
+                                <div class="radio-content">
+                                    <div class="radio-circle"></div>
+                                    <i class="fa-solid fa-calendar-check"></i>
+                                    <div class="radio-text">
+                                        <span class="radio-title">Semestrale</span>
+                                        <span class="radio-desc">Due rate ogni sei mesi</span>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="precontractual-note"
+                            style="background:#f8fafc;border-left:4px solid #9e1b21;border-radius:0 12px 12px 0;padding:14px 18px;margin-bottom:20px;font-size:0.88rem;color:#4a5568;line-height:1.5;">
+                            <i class="fa-solid fa-circle-info" style="color:#9e1b21;margin-right:6px;"></i>
+                            <strong>Nota precontrattuale:</strong> La compilazione di questo modulo costituisce
+                            esclusivamente una <strong>richiesta di preventivo</strong> e non vincola le parti alla
+                            stipula di alcun contratto assicurativo.
+                        </div>
+
+                        <div class="privacy-policy">
+                            <label class="custom-checkbox sm">
+                                <input type="checkbox" name="Consenso_Privacy" value="Si" required>
+                                <span class="checkmark"></span>
+                                <div class="checkbox-content">
+                                    <span>Dichiaro di aver letto l'<a href="privacy-policy.html" target="_blank"
+                                            style="color:#9e1b21;font-weight:600;">Informativa sulla Privacy</a> (art.
+                                        13 GDPR) e acconsento al trattamento dei miei dati personali ai fini
+                                        dell'elaborazione del preventivo. <span class="required">*</span></span>
+                                </div>
+                            </label>
+                        </div>
+
+                        <!-- Success Message Container -->
+                        <div id="success-message" class="hidden">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <h3>Richiesta inviata con successo!</h3>
+                            <p>Abbiamo ricevuto i tuoi dati. Un nostro consulente ti contatterà con la migliore offerta
+                                entro <strong>24-48 ore lavorative</strong>.</p>
+                        </div>
+                    </div>
+                </div> <!-- End form-steps-wrapper -->
+
+                <div class="form-navigation">
+                    <button type="button" class="btn btn-secondary" id="btn-prev" disabled>
+                        <i class="fa-solid fa-arrow-left"></i> Indietro
+                    </button>
+                    <button type="button" class="btn btn-primary" id="btn-next">
+                        Avanti <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <button type="submit" class="btn btn-submit hidden" id="btn-submit">
+                        Richiedi Preventivo <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+            </form>
+
+            <!-- Footer legale -->
+            <footer
+                style="margin-top:30px;padding-top:20px;border-top:1px solid #e2e8f0;text-align:center;font-size:0.8rem;color:#a0aec0;line-height:1.6;">
+                <p><i class="fa-solid fa-shield-halved" style="color:#9e1b21;"></i> <strong>Gianluca Breccia</strong> –
+                    Consulente Assicurativo</p>
+                <p>Iscritto al RUI IVASS n. <strong>[INSERIRE NUMERO RUI]</strong> – Sez. [A/B/D/E] &bull;
+                    <a href="privacy-policy.html" target="_blank"
+                        style="color:#9e1b21;text-decoration:none;font-weight:600;">Informativa Privacy</a>
+                </p>
+                <p style="margin-top:6px;font-size:0.75rem;">I dati sono trattati ai sensi del Reg. UE 679/2016 (GDPR)
+                    esclusivamente per l'elaborazione della richiesta di preventivo.</p>
+            </footer>
+        </div>
+    </main>
+    <div class="loading-overlay hidden" id="loading-overlay">
+        <div class="spinner"></div>
+        <p>Invio in corso...</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

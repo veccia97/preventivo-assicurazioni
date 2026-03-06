@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informativa Privacy – Gianluca Breccia</title>
+    <meta name="description"
+        content="Informativa sul trattamento dei dati personali ai sensi del Regolamento UE 679/2016 (GDPR).">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #9e1b21;
+            --text-main: #2d3748;
+            --text-muted: #718096;
+            --bg: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+            --white: #ffffff;
+            --radius: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 40px 20px;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 820px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 24px;
+            padding: 50px 60px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.12);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 32px;
+            font-size: 0.95rem;
+            transition: opacity 0.2s;
+        }
+
+        .back-btn:hover {
+            opacity: 0.75;
+        }
+
+        .page-header {
+            border-bottom: 2px solid #f0f4f8;
+            padding-bottom: 24px;
+            margin-bottom: 36px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(158, 27, 33, 0.1);
+            color: var(--primary-color);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .update-date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 32px 0 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2 i {
+            font-size: 1rem;
+        }
+
+        p {
+            margin-bottom: 14px;
+            color: var(--text-main);
+        }
+
+        ul {
+            padding-left: 24px;
+            margin-bottom: 14px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight-box {
+            background: #f8fafc;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 0 12px 12px 0;
+            padding: 16px 20px;
+            margin: 20px 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+        }
+
+        /* ⚠️  PLACEHOLDER da compilare */
+        .da-compilare {
+            background: #fffbeb;
+            border: 2px dashed #f59e0b;
+            border-radius: 8px;
+            padding: 10px 16px;
+            color: #92400e;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin: 8px 0;
+        }
+
+        .da-compilare::before {
+            content: "✏️ DA COMPLETARE: ";
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.95rem;
+        }
+
+        th {
+            background: #f8fafc;
+            padding: 10px 14px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        td {
+            padding: 10px 14px;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
+        }
+
+        .footer-note {
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid #e2e8f0;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 30px 24px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="javascript:history.back()" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i> Torna al modulo
+        </a>
+
+        <div class="page-header">
+            <span class="badge">Trasparenza & Privacy</span>
+            <h1>Informativa sul trattamento dei dati personali</h1>
+            <p class="update-date">Ai sensi dell'art. 13 del Regolamento UE 679/2016 (GDPR) &mdash; Ultimo
+                aggiornamento: Marzo 2026</p>
+        </div>
+
+        <!-- 1. TITOLARE -->
+        <h2><i class="fa-solid fa-user-shield"></i> 1. Titolare del trattamento</h2>
+        <div class="da-compilare">Inserire: Nome e Cognome / Ragione Sociale, Indirizzo completo, P.IVA / C.F., Email,
+            Numero di iscrizione RUI IVASS</div>
+        <div class="highlight-box">
+            <p><strong>Esempio da sostituire:</strong><br>
+                Gianluca Breccia – Consulente Assicurativo<br>
+                Via [INSERIRE VIA], [INSERIRE CITTÀ] ([INSERIRE PROVINCIA])<br>
+                C.F.: [INSERIRE CODICE FISCALE] · P.IVA: [INSERIRE P.IVA]<br>
+                Email: [INSERIRE EMAIL] · Tel: [INSERIRE TELEFONO]<br>
+                Iscritto al RUI al n. [INSERIRE NUMERO RUI] – Sezione [A/B/D/E]
+            </p>
+        </div>
+
+        <!-- 2. FINALITÀ -->
+        <h2><i class="fa-solid fa-bullseye"></i> 2. Finalità e base giuridica del trattamento</h2>
+        <p>I Suoi dati personali sono trattati per le seguenti finalità:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Finalità</th>
+                    <th>Base giuridica</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Elaborazione della richiesta di preventivo assicurativo</td>
+                    <td>Esecuzione di misure precontrattuali (art. 6.1.b GDPR)</td>
+                </tr>
+                <tr>
+                    <td>Contatto da parte del consulente per fornire l'offerta</td>
+                    <td>Esecuzione di misure precontrattuali (art. 6.1.b GDPR)</td>
+                </tr>
+                <tr>
+                    <td>Adempimento di obblighi di legge (antiriciclaggio, IVASS ecc.)</td>
+                    <td>Obbligo legale (art. 6.1.c GDPR)</td>
+                </tr>
+                <tr>
+                    <td>Invio di comunicazioni commerciali e newsletter</td>
+                    <td>Consenso dell'interessato (art. 6.1.a GDPR) – facoltativo</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- 3. DATI TRATTATI -->
+        <h2><i class="fa-solid fa-database"></i> 3. Categorie di dati trattati</h2>
+        <ul>
+            <li><strong>Dati identificativi:</strong> nome, cognome, codice fiscale, data di nascita</li>
+            <li><strong>Dati di contatto:</strong> email, numero di telefono, indirizzo</li>
+            <li><strong>Dati relativi al bene da assicurare:</strong> dati del veicolo, dell'immobile o dati sanitari
+                (secondo il modulo compilato)</li>
+            <li><strong>Dati relativi allo stato di salute</strong> (solo nei preventivi malattia/vita): trattati ai
+                sensi dell'art. 9.2 GDPR previo consenso esplicito</li>
+        </ul>
+
+        <!-- 4. COMUNICAZIONE -->
+        <h2><i class="fa-solid fa-share-nodes"></i> 4. Comunicazione e destinatari</h2>
+        <p>I dati potranno essere comunicati a:</p>
+        <ul>
+            <li>Compagnie assicurative partner, per la formulazione delle offerte</li>
+            <li>Responsabili del trattamento designati (es. fornitori di servizi informatici)</li>
+            <li>Autorità di vigilanza (IVASS, Banca d'Italia) e giudiziarie, ove richiesto dalla legge</li>
+        </ul>
+        <p>I dati <strong>non vengono ceduti a terzi</strong> per finalità di marketing senza il Suo consenso.</p>
+
+        <!-- 5. CONSERVAZIONE -->
+        <h2><i class="fa-solid fa-clock"></i> 5. Tempi di conservazione</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tipo di dato</th>
+                    <th>Periodo di conservazione</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Richieste di preventivo non seguite da contratto</td>
+                    <td>12 mesi dalla richiesta</td>
+                </tr>
+                <tr>
+                    <td>Dati relativi a contratti stipulati</td>
+                    <td>10 anni dalla scadenza del contratto</td>
+                </tr>
+                <tr>
+                    <td>Dati per adempimenti antiriciclaggio</td>
+                    <td>10 anni ai sensi del D.Lgs. 231/2007</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- 6. DIRITTI -->
+        <h2><i class="fa-solid fa-hand-holding-heart"></i> 6. Diritti dell'interessato</h2>
+        <p>Lei ha il diritto di:</p>
+        <ul>
+            <li><strong>Accesso</strong> ai Suoi dati (art. 15 GDPR)</li>
+            <li><strong>Rettifica</strong> dei dati inesatti (art. 16 GDPR)</li>
+            <li><strong>Cancellazione</strong> ("diritto all'oblio", art. 17 GDPR)</li>
+            <li><strong>Limitazione</strong> del trattamento (art. 18 GDPR)</li>
+            <li><strong>Portabilità</strong> dei dati (art. 20 GDPR)</li>
+            <li><strong>Opposizione</strong> al trattamento (art. 21 GDPR)</li>
+            <li><strong>Revoca del consenso</strong> in qualsiasi momento, senza pregiudizio per la liceità del
+                trattamento precedente</li>
+        </ul>
+        <p>Per esercitare i Suoi diritti, scriva a: <strong><em>[INSERIRE EMAIL PRIVACY]</em></strong></p>
+        <p>Ha inoltre il diritto di proporre reclamo al <strong>Garante per la protezione dei dati personali</strong>
+            (<a href="https://www.garanteprivacy.it" target="_blank">garanteprivacy.it</a>).</p>
+
+        <!-- 7. PRECONTRATTUALE -->
+        <h2><i class="fa-solid fa-file-contract"></i> 7. Natura della richiesta</h2>
+        <div class="highlight-box">
+            <p>La compilazione dei moduli presenti in questo sito costituisce esclusivamente una <strong>richiesta di
+                    preventivo</strong> e non vincola in alcun modo le parti alla stipula di un contratto assicurativo.
+                L'offerta definitiva sarà fornita dal consulente a seguito della valutazione del profilo di rischio.</p>
+        </div>
+
+        <!-- 8. INTERMEDIARIO -->
+        <h2><i class="fa-solid fa-id-badge"></i> 8. Informazioni sull'intermediario</h2>
+        <div class="da-compilare">Inserire il numero di iscrizione RUI IVASS, la sezione (A/B/D/E) e il link alla
+            verifica su: https://servizi.ivass.it/RuirPubblica/</div>
+        <p>
+            Gianluca Breccia è iscritto al <strong>Registro Unico degli Intermediari assicurativi (RUI)</strong> tenuto
+            dall'IVASS al numero:
+            <strong>[INSERIRE NUMERO RUI]</strong> – Sezione [A/B/D/E].<br>
+            È possibile verificare l'iscrizione sul sito IVASS:
+            <a href="https://servizi.ivass.it/RuirPubblica/" target="_blank">servizi.ivass.it/RuirPubblica/</a>
+        </p>
+        <div class="da-compilare">Indicare inoltre: mandanti/compagnie per cui opera, se agisce in esclusiva o
+            plurimandato, e le eventuali partecipazioni qualificate.</div>
+
+        <!-- 9. RECLAMI -->
+        <h2><i class="fa-solid fa-comment-exclamation"></i> 9. Reclami</h2>
+        <p>Eventuali reclami relativi all'attività di intermediazione assicurativa possono essere inviati a:</p>
+        <div class="da-compilare">Inserire: indirizzo email e/o PEC dedicata ai reclami, e i tempi di risposta (di norma
+            entro 45 giorni)</div>
+        <p>In caso di mancata risposta o risposta insoddisfacente, è possibile rivolgersi all'<strong>IVASS</strong> (<a
+                href="https://www.ivass.it" target="_blank">ivass.it</a>).</p>
+
+        <div class="footer-note">
+            <p>Gianluca Breccia | Consulente Assicurativo &bull; Iscritto al RUI IVASS n. [NUMERO RUI]</p>
+        </div>
+    </div>
+</body>
+
+</html>
