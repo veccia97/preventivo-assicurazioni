@@ -124,10 +124,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         targaInput.maxLength = 7;
                     }
                 } else if (this.value === 'Ciclomotore') {
-                    targaIcon.className = 'fa-solid fa-moped';
-                    marcaIcon.className = 'fa-solid fa-moped';
-                    modelloIcon.className = 'fa-solid fa-moped';
-                    if (allestimentoIcon) allestimentoIcon.className = 'fa-solid fa-moped';
+                    targaIcon.className = 'fa-solid fa-motorcycle';
+                    marcaIcon.className = 'fa-solid fa-motorcycle';
+                    modelloIcon.className = 'fa-solid fa-motorcycle';
+                    if (allestimentoIcon) allestimentoIcon.className = 'fa-solid fa-motorcycle';
 
                     if (targaInput) {
                         targaInput.placeholder = "Es. X00000";
@@ -300,11 +300,11 @@ document.addEventListener('DOMContentLoaded', () => {
 // Date Auto-formatter
 document.addEventListener('DOMContentLoaded', () => {
     const meseAnnoInput = document.getElementById('mese_anno_immatricolazione');
-    
+
     if (meseAnnoInput) {
-        meseAnnoInput.addEventListener('input', function(e) {
+        meseAnnoInput.addEventListener('input', function (e) {
             let input = this.value.replace(/\D/g, '').substring(0, 6); // Remove non-digits, max 6 numbers
-            
+
             // Add slash after two digits if we have more than 2 digits
             if (input.length > 2) {
                 this.value = input.substring(0, 2) + '/' + input.substring(2);
@@ -312,9 +312,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.value = input;
             }
         });
-        
+
         // Handle backspace properly
-        meseAnnoInput.addEventListener('keydown', function(e) {
+        meseAnnoInput.addEventListener('keydown', function (e) {
             if (e.key === 'Backspace' && this.value.length === 4 && this.value.includes('/')) {
                 this.value = this.value.substring(0, 2);
             }
