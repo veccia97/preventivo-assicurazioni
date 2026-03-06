@@ -606,11 +606,20 @@ body {
     height: 100%;
 }
 
-.radio-content i {
+.radio-content i,
+.radio-content img {
     font-size: 2.5rem;
+    width: 60px;
+    /* Adjusting for Vespa image */
+    height: auto;
     color: var(--text-muted);
     margin-bottom: 15px;
     transition: var(--transition);
+    filter: grayscale(100%) opacity(0.6);
+}
+
+.custom-radio input:checked~.radio-content img {
+    filter: grayscale(0%) opacity(1);
 }
 
 .radio-text {
