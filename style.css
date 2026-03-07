@@ -678,6 +678,86 @@ body {
     background: white;
 }
 
+/* Radio Cards - Refined for vehicle selection */
+.radio-group.vehicle-selector {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.radio-group.vehicle-selector .custom-radio {
+    flex: 1;
+    min-width: 0;
+    /* Allow shrinking */
+}
+
+.radio-group.vehicle-selector .radio-content {
+    padding: 14px 8px;
+    border-radius: 12px;
+    border-width: 1px;
+}
+
+.radio-group.vehicle-selector .radio-content i,
+.radio-group.vehicle-selector .radio-content img {
+    font-size: 1.8rem;
+    width: 44px;
+    height: auto;
+    margin-bottom: 8px;
+    mix-blend-mode: multiply;
+    /* Removes white background from silhouettes */
+}
+
+.radio-group.vehicle-selector .radio-title {
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+.radio-group.vehicle-selector .radio-circle {
+    top: 8px;
+    right: 8px;
+    width: 14px;
+    height: 14px;
+}
+
+.radio-group.vehicle-selector .radio-desc {
+    display: none;
+    /* Hide description in compact mode */
+}
+
+.custom-radio:hover .radio-content {
+    border-color: var(--primary-color);
+}
+
+.custom-radio input:checked~.radio-content {
+    border-color: var(--primary-color);
+    background: rgba(158, 27, 33, 0.05);
+}
+
+.custom-radio input:checked~.radio-content i,
+.custom-radio input:checked~.radio-content img {
+    filter: none;
+    opacity: 1;
+}
+
+.custom-radio input:checked~.radio-content .radio-circle {
+    border-color: var(--primary-color);
+    background-color: var(--primary-color);
+}
+
+.custom-radio input:checked~.radio-content .radio-circle::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: white;
+}
+
 /* Privacy Checkbox (Small) */
 .custom-checkbox.sm {
     padding: 10px;
