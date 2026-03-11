@@ -301,6 +301,25 @@ body {
     border-color: rgba(185, 28, 28, 0.1);
 }
 
+.link-item.questionnaire-link {
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(185, 28, 28, 0.05));
+    border: 2px solid var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.link-item.questionnaire-link .icon-box {
+    background: var(--primary-color);
+    color: white;
+}
+
+.link-item.questionnaire-link:hover {
+    box-shadow: 0 15px 30px rgba(185, 28, 28, 0.2);
+}
+
+.link-item.questionnaire-link .link-title {
+    color: var(--primary-hover);
+}
+
 .icon-box {
     width: 48px;
     height: 48px;

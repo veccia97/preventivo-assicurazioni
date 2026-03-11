@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisi dei Bisogni Assicurativi | Gianluca Breccia</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- html2canvas and jsPDF for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+    <div class="background-elements">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="container">
+        <div class="glass-panel" id="questionnaire-container">
+            <header class="form-header">
+                <div class="logo-wrapper">
+                    <img src="logo-auto-moto.png" alt="Logo" class="company-logo"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="logo-icon fallback" style="display: none;">
+                        <i class="fa-solid fa-clipboard-question"></i>
+                    </div>
+                </div>
+                <h2>Gianluca Breccia</h2>
+                <h1>Analisi del Rischio Personale e Aziendale</h1>
+                <p>Scopri l'esposizione al rischio tua o della tua attività con un questionario professionale.</p>
+            </header>
+
+            <div class="progress-container hidden" id="progress-wrapper">
+                <div class="progress-bar" id="progress-bar"></div>
+                <div class="step-indicators" id="dynamic-indicators">
+                    <!-- Iniettati da JS -->
+                </div>
+            </div>
+
+            <form id="questionnaire-form">
+                <div class="form-steps-wrapper">
+
+                    <!-- STEP INTRO: Regole e Scelta Percorso -->
+                    <div class="form-step active" id="step-intro">
+                        <div class="precontractual-note"
+                            style="background:#f8fafc; border-left:4px solid var(--primary); border-radius:0 12px 12px 0; padding:20px; margin-bottom:30px;">
+                            <h3 style="color: var(--primary); margin-top: 0; margin-bottom: 10px;"><i
+                                    class="fa-solid fa-scale-balanced"></i> Come funziona l'Analisi</h3>
+                            <p
+                                style="font-size: 0.95rem; line-height: 1.5; color: var(--text-main); margin-bottom: 10px;">
+                                Questo questionario è stato sviluppato basandosi sulle <strong>migliori fonti di analisi
+                                    del rischio</strong> (Risk Management). Il suo scopo è fornirti una fotografia
+                                chiara e oggettiva delle tue vulnerabilità personali, familiari o aziendali.
+                            </p>
+                            <ul
+                                style="font-size: 0.9rem; line-height: 1.6; color: var(--text-muted); margin-left: 20px;">
+                                <li><strong>Servizio Gratuito:</strong> L'analisi è totalmente gratuita e l'estrazione
+                                    del report PDF non comporta alcun obbligo di stipula.</li>
+                                <li><strong>Valutazione Umana:</strong> I tuoi dati verranno valutati unicamente da me,
+                                    Gianluca Breccia, Consulente Assicurativo regolarmente iscritto al RUI, per
+                                    garantirti la massima serietà.</li>
+                                <li><strong>Contatto Senza Impegno:</strong> Riceverai una consulenza personalizzata
+                                    sulle priorità d'intervento, che sarai tu a decidere se e quando intraprendere.</li>
+                            </ul>
+                        </div>
+
+                        <h2 style="text-align: center; margin-bottom: 20px;">Per chi stai effettuando l'analisi?</h2>
+
+                        <div class="grid-links" style="grid-template-columns: 1fr 1fr; gap: 20px; display: grid;">
+                            <label class="custom-radio pathway-selector">
+                                <input type="radio" name="Tipologia_Analisi" value="Privato" required>
+                                <div class="radio-content" style="padding: 30px 15px;">
+                                    <div class="radio-circle"></div>
+                                    <i class="fa-solid fa-house-user fa-3x"
+                                        style="color: var(--primary); margin-bottom: 15px;"></i>
+                                    <h3 style="margin-bottom: 5px;">Privato / Famiglia</h3>
+                                    <span
+                                        style="font-size: 0.85rem; color: var(--text-muted); text-align: center;">Protezione
+                                        reddito, beni e nucleo familiare.</span>
+                                </div>
+                            </label>
+
+                            <label class="custom-radio pathway-selector">
+                                <input type="radio" name="Tipologia_Analisi" value="Azienda">
+                                <div class="radio-content" style="padding: 30px 15px;">
+                                    <div class="radio-circle"></div>
+                                    <i class="fa-solid fa-building fa-3x"
+                                        style="color: var(--primary); margin-bottom: 15px;"></i>
+                                    <h3 style="margin-bottom: 5px;">Azienda / P.IVA</h3>
+                                    <span
+                                        style="font-size: 0.85rem; color: var(--text-muted); text-align: center;">Responsabilità,
+                                        asset, Cyber e Key Man.</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- ========================================== -->
+                    <!-- ======= PERCORSO A: PRIVATO (P) ========== -->
+                    <!-- ========================================== -->
+
+                    <!-- P - Step 1: Dati Anagrafici -->
+                    <div class="form-step" id="step-p-1" data-path="Privato">
+                        <h2>Dati Personali</h2>
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label>Nome <span class="required">*</span></label>
+                                <div class="input-wrapper"><i class="fa-regular fa-user"></i><input type="text"
+                                        name="Nome_P" placeholder="Nome"></div>
+                            </div>
+                            <div class="input-group">
+                                <label>Cognome <span class="required">*</span></label>
+                                <div class="input-wrapper"><i class="fa-regular fa-user"></i><input type="text"
+                                        name="Cognome_P" placeholder="Cognome"></div>
+                            </div>
+                            <div class="input-group">
+                                <label>La tua Età <span class="required">*</span></label>
+                                <div class="input-wrapper"><i class="fa-solid fa-cake-candles"></i><input type="number"
+                                        name="Eta_P" min="18" max="99" placeholder="Es. 35"></div>
+                            </div>
+                            <div class="input-group">
+                                <label>Professione <span class="required">*</span></label>
+                                <select name="Professione_P" class="custom-select"
+                                    style="width: 100%; padding: 12px; border-radius: 12px;">
+                                    <option value="" disabled selected>Seleziona...</option>
+                                    <option value="Dipendente Pubblico">Dipendente Pubblico</option>
+                                    <option value="Dipendente Privato">Dipendente Privato</option>
+                                    <option value="Libero Professionista / Autonomo">Libero Professionista / Autonomo
+                                    </option>
+                                    <option value="Imprenditore">Imprenditore / Commerciante</option>
+                                    <option value="Studente / In cerca di occupazione">Studente / Disoccupato</option>
+                                    <option value="Pensionato">Pensionato</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label>Email <span class="required">*</span></label>
+                                <div class="input-wrapper"><i class="fa-regular fa-envelope"></i><input type="email"
+                                        name="Email_P" placeholder="La tua email"></div>
+                            </div>
+                            <div class="input-group">
+                                <label>Cellulare <span class="required">*</span></label>
+                                <div class="input-wrapper"><i class="fa-solid fa-phone"></i><input type="tel"
+                                        name="Telefono_P" placeholder="Cellulare"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- P - Step 2: Redditività e Famiglia -->
+                    <div class="form-step" id="step-p-2" data-path="Privato">
+                        <h2>Capacità Economica e Nucleo</h2>
+                        <div class="form-grid">
+                            <div class="input-group full-width">
+                                <label>Reddito Netto Annuo del Profilo (Approssimativo) <span
+                                        class="required">*</span></label>
+                                <div class="radio-group" style="grid-template-columns: 1fr 1fr 1fr;">
+                                    <label class="custom-radio"><input type="radio" name="Reddito_P"
+                                            value="Fino a 30.000€" checked>
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div><span>&lt; 30.000€</span>
+                                        </div>
+                                    </label>
+                                    <label class="custom-radio"><input type="radio" name="Reddito_P"
+                                            value="Tra 30.000€ e 70.000€">
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div><span>30k - 70k€</span>
+                                        </div>
+                                    </label>
+                                    <label class="custom-radio"><input type="radio" name="Reddito_P"
+                                            value="Oltre 70.000€">
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div><span>&gt; 70.000€</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="input-group full-width" style="margin-top: 15px;">
+                                <label>Composizione Familiare <span class="required">*</span></label>
+                                <div class="radio-group">
+                                    <label class="custom-radio"><input type="radio" name="Famiglia_P" value="Single"
+                                            checked>
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div><span>Single</span>
+                                        </div>
+                                    </label>
+                                    <label class="custom-radio"><input type="radio" name="Famiglia_P"
+                                            value="Coppia senza figli">
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div><span>In Coppia (no figli)</span>
+                                        </div>
+                                    </label>
+                                    <label class="custom-radio"><input type="radio" name="Famiglia_P"
+                                            value="Con Figli/Soggetti a carico">
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div><span>Con Figli/A carico</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="input-group full-width hidden" id="figli-details-p" style="margin-top: 15px;">
+                                <label>Quanti figli/soggetti a carico e la loro età media?</label>
+                                <div class="input-wrapper"><i class="fa-solid fa-children"></i><input type="text"
+                                        name="Dettagli_Figli_P" id="dettagli_figli_p"
+                                        placeholder="Es. 2 figli, 5 e 8 anni"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- P - Step 3: Patrimonio e Stile di Vita -->
+                    <div class="form-step" id="step-p-3" data-path="Privato">
+                        <h2>Patrimonio e Abitudini</h2>
+                        <div class="form-grid">
+                            <div class="input-group full-width">
+                                <label>Abitazione Principale <span class="required">*</span></label>
+                                <div class="radio-group">
+                                    <label class="custom-radio"><input type="radio" name="Abitazione_P" value="Affitto"
+                                            checked>
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div><span>In Affitto</span>
+                                        </div>
+                                    </label>
+                                    <label class="custom-radio"><input type="radio" name="Abitazione_P"
+                                            value="Proprieta senza mutuo">
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div><span>Proprietà Libera</span>
+                                        </div>
+                                    </label>
+                                    <label class="custom-radio"><input type="radio" name="Abitazione_P"
+                                            value="Proprieta con mutuo">
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div><span>Proprietà + Mutuo</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="input-group full-width hidden" id="mutuo-details-p" style="margin-top: 15px;">
+                                <label>Importo stimato residuo del Mutuo/Finanziamenti</label>
+                                <div class="input-wrapper"><i class="fa-solid fa-euro-sign"></i><input type="text"
+                                        name="Importo_Mutuo_P" id="importo_mutuo_p" placeholder="Es. 80.000 €"></div>
+                            </div>
+
+                            <div class="input-group" style="margin-top: 15px;">
+                                <label>Hai un fondo pensione integrativo? <span class="required">*</span></label>
+                                <div class="radio-group">
+                                    <label class="custom-radio"><input type="radio" name="Pensione_P" value="No"
+                                            checked>
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div><span>No</span>
+                                        </div>
+                                    </label>
+                                    <label class="custom-radio"><input type="radio" name="Pensione_P" value="Si">
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div><span>Sì</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="input-group" style="margin-top: 15px;">
+                                <label>Quanti veicoli possiedi in famiglia? <span class="required">*</span></label>
+                                <div class="input-wrapper"><i class="fa-solid fa-car"></i><input type="number"
+                                        name="Veicoli_P" min="0" value="1"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ========================================== -->
+                    <!-- ======= PERCORSO B: AZIENDA (A) ========== -->
+                    <!-- ========================================== -->
+
+                    <!-- A - Step 1: Dati Aziendali -->
+                    <div class="form-step" id="step-a-1" data-path="Azienda">
+                        <h2>Anagrafica Aziendale</h2>
+                        <div class="form-grid">
+                            <div class="input-group full-width">
+                                <label>Ragione Sociale / Nome Attività <span class="required">*</span></label>
+                                <div class="input-wrapper"><i class="fa-solid fa-building"></i><input type="text"
+                                        name="RagioneSociale_A" placeholder="Es. Rossi Srl"></div>
+                            </div>
+                            <div class="input-group">
+                                <label>Partita IVA <span class="required">*</span></label>
+                                <div class="input-wrapper"><i class="fa-solid fa-hashtag"></i><input type="text"
+                                        name="PIVA_A" placeholder="P.IVA"></div>
+                            </div>
+                            <div class="input-group">
+                                <label>Settore di Attività <span class="required">*</span></label>
+                                <select name="Settore_A" class="custom-select"
+                                    style="width: 100%; padding: 12px; border-radius: 12px;">
+                                    <option value="" disabled selected>Seleziona...</option>
+                                    <option value="Commercio/Retail">Commercio / Retail</option>
+                                    <option value="Edilizia/Costruzioni">Edilizia / Costruzioni</option>
+                                    <option value="Produzione/Artigianato">Produzione / Artigianato</option>
+                                    <option value="Professionisti/Consulenza">Professionisti / Consulenza</option>
+                                    <option value="IT/Servizi Digitali">IT / Servizi Digitali</option>
+                                    <option value="HORECA">Ristorazione / Alberghiero</option>
+                                </select>
+                            </div>
+                            <div class="input-group full-width" style="margin-top: 15px;">
+                                <h3 style="font-size: 1rem; margin-bottom: 10px; color: var(--text-main);">Dati del
+                                    Referente</h3>
+                            </div>
+                            <div class="input-group">
+                                <label>Nome e Cognome Referente <span class="required">*</span></label>
+                                <div class="input-wrapper"><i class="fa-regular fa-user"></i><input type="text"
+                                        name="Referente_A" placeholder="Nome"></div>
+                            </div>
+                            <div class="input-group">
+                                <label>Ruolo in Azienda <span class="required">*</span></label>
+                                <div class="input-wrapper"><i class="fa-solid fa-user-tie"></i><input type="text"
+                                        name="Ruolo_A" placeholder="Es. Amministratore"></div>
+                            </div>
+                            <div class="input-group">
+                                <label>Email <span class="required">*</span></label>
+                                <div class="input-wrapper"><i class="fa-regular fa-envelope"></i><input type="email"
+                                        name="Email_A" placeholder="Email aziendale"></div>
+                            </div>
+                            <div class="input-group">
+                                <label>Telefono <span class="required">*</span></label>
+                                <div class="input-wrapper"><i class="fa-solid fa-phone"></i><input type="tel"
+                                        name="Telefono_A" placeholder="Contatto telefonico"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- A - Step 2: Dimensioni e Asset -->
+                    <div class="form-step" id="step-a-2" data-path="Azienda">
+                        <h2>Dimensioni e Locali</h2>
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label>Fatturato Annuo Stimato <span class="required">*</span></label>
+                                <select name="Fatturato_A" class="custom-select"
+                                    style="width: 100%; padding: 12px; border-radius: 12px;">
+                                    <option value="" disabled selected>Seleziona fascia...</option>
+                                    <option value="Fino a 100K">Fino a 100.000 €</option>
+                                    <option value="Da 100K a 500K">100.000 € - 500.000 €</option>
+                                    <option value="Da 500K a 2M">500.000 € - 2.000.000 €</option>
+                                    <option value="Oltre 2M">Oltre 2.000.000 €</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label>Numero Addetti (Dipendenti/Soci) <span class="required">*</span></label>
+                                <div class="input-wrapper"><i class="fa-solid fa-users"></i><input type="number"
+                                        name="Dipendenti_A" min="1" value="1"></div>
+                            </div>
+
+                            <div class="input-group full-width" style="margin-top: 15px;">
+                                <label>Tipologia Locali di Lavoro <span class="required">*</span></label>
+                                <div class="radio-group">
+                                    <label class="custom-radio"><input type="radio" name="Locali_A"
+                                            value="Smart Working / Nessuno" checked>
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div><span style="font-size: 0.9rem;">Smart
+                                                Working</span>
+                                        </div>
+                                    </label>
+                                    <label class="custom-radio"><input type="radio" name="Locali_A"
+                                            value="Ufficio / Studio">
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div><span
+                                                style="font-size: 0.9rem;">Ufficio/Studio</span>
+                                        </div>
+                                    </label>
+                                    <label class="custom-radio"><input type="radio" name="Locali_A"
+                                            value="Capannone / Negozio">
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div><span
+                                                style="font-size: 0.9rem;">Capannone/Negozio</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="input-group full-width" style="margin-top: 15px;">
+                                <label>Azienda possiede macchinari/merci ad alto valore o infiammabili? <span
+                                        class="required">*</span></label>
+                                <div class="radio-group">
+                                    <label class="custom-radio"><input type="radio" name="MerciPericolose_A" value="No"
+                                            checked>
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div><span>No, basso rischio</span>
+                                        </div>
+                                    </label>
+                                    <label class="custom-radio"><input type="radio" name="MerciPericolose_A" value="Si">
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div><span>Sì, alto valore/rischio</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- A - Step 3: Vulnerabilità Specifiche -->
+                    <div class="form-step" id="step-a-3" data-path="Azienda">
+                        <h2>Vulnerabilità Aziendali</h2>
+                        <div class="form-grid">
+                            <div class="input-group full-width">
+                                <label>Flotta Aziendale: quanti veicoli strumentali? <span
+                                        class="required">*</span></label>
+                                <div class="input-wrapper"><i class="fa-solid fa-truck"></i><input type="number"
+                                        name="Veicoli_A" min="0" value="0"></div>
+                            </div>
+
+                            <div class="input-group full-width" style="margin-top: 15px;">
+                                <label>L'Azienda gestisce archivi di dati personali online o e-commerce? (Rischio Cyber)
+                                    <span class="required">*</span></label>
+                                <div class="radio-group">
+                                    <label class="custom-radio"><input type="radio" name="DatiCyber_A" value="No"
+                                            checked>
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div><span>Minimo/Nessuno</span>
+                                        </div>
+                                    </label>
+                                    <label class="custom-radio"><input type="radio" name="DatiCyber_A" value="Si">
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div><span>Sì, dati critici</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="input-group full-width" style="margin-top: 15px;">
+                                <label>Key Man: Esistono figure centrali (es. soci fondatori) senza le quali l'azienda
+                                    andrebbe in default immediato se venissero a mancare? <span
+                                        class="required">*</span></label>
+                                <div class="radio-group">
+                                    <label class="custom-radio"><input type="radio" name="Keyman_A" value="No">
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div><span>No / Organigramma stabile</span>
+                                        </div>
+                                    </label>
+                                    <label class="custom-radio"><input type="radio" name="Keyman_A" value="Si" checked>
+                                        <div class="radio-content">
+                                            <div class="radio-circle"></div><span>Sì, rischio uomo chiave</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ========================================== -->
+                    <!-- ======= CONCLUSIONE COMUNE =============== -->
+                    <!-- ========================================== -->
+
+                    <!-- Step COMUNE: Privacy -->
+                    <div class="form-step" id="step-final" data-path="Comune">
+                        <h2>Consenso e Elaborazione</h2>
+                        <div class="privacy-policy"
+                            style="margin-top: 30px; background: rgba(255,255,255,0.6); padding: 20px; border-radius: 12px; border: 1px solid var(--border);">
+                            <label class="custom-checkbox sm">
+                                <input type="checkbox" name="Consenso_Privacy" value="Si" required>
+                                <span class="checkmark"></span>
+                                <div class="checkbox-content">
+                                    <span style="font-size: 0.95rem;">Dichiaro di aver letto l'<a
+                                            href="privacy-policy.html" target="_blank"
+                                            style="color:#9e1b21;font-weight:600;">Informativa sulla Privacy</a> e
+                                        autorizzo Gianluca Breccia a valutare questi dati al solo scopo di fornirmi il
+                                        Check-Up Assicurativo, senza alcun vincolo di acquisto polizze. <span
+                                            class="required">*</span></span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- STEP: Elaborazione in corso -->
+                    <div class="form-step" id="step-processing" data-path="Comune">
+                        <div style="text-align: center; padding: 40px 20px;">
+                            <i class="fa-solid fa-chart-pie fa-spin fa-4x"
+                                style="color: var(--primary); margin-bottom: 20px;"></i>
+                            <h2>Calcolo Matriciale dei Rischi...</h2>
+                            <p style="color: var(--text-muted);">Il sistema sta estrapolando i gradi di esposizione del
+                                profilo.</p>
+                        </div>
+                    </div>
+                </div> <!-- End form-steps-wrapper -->
+
+                <div class="form-navigation" id="form-nav-buttons" style="display: none;">
+                    <button type="button" class="btn btn-secondary" id="btn-prev" disabled>
+                        <i class="fa-solid fa-arrow-left"></i> Indietro
+                    </button>
+                    <button type="button" class="btn btn-primary" id="btn-next">
+                        Avanti <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <button type="button" class="btn btn-submit hidden" id="btn-analyze">
+                        Crea il mio Report PDF <i class="fa-solid fa-file-pdf"></i>
+                    </button>
+                </div>
+            </form>
+
+            <!-- PDF Container: Nascondere dall'UI ma utile per jspdf -->
+            <div id="pdf-content"
+                style="display: none; background: white; padding: 40px; color: black; font-family: sans-serif; position: absolute; left: -9999px; width: 800px;">
+                <div
+                    style="display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid #b91c1c; padding-bottom: 15px; margin-bottom: 20px;">
+                    <div>
+                        <h1 style="color: #b91c1c; margin: 0; font-size: 24px;">REPORT RISK MANAGEMENT</h1>
+                        <h4 style="margin: 5px 0 0 0; color: #555; text-transform: uppercase;" id="pdf-tipo-analisi">
+                        </h4>
+                    </div>
+                    <div>
+                        <p style="margin: 0; font-weight: bold;">Gianluca Breccia</p>
+                        <p style="margin: 0; font-size: 12px; color: #666;">Consulente Assicurativo IVASS</p>
+                    </div>
+                </div>
+
+                <h3 id="pdf-date" style="text-align: right; font-size: 12px; color: #777;"></h3>
+
+                <section style="margin-top: 20px;">
+                    <h2 style="background: #f1f5f9; padding: 10px; border-radius: 5px; font-size: 16px;">Sintesi del
+                        Profilo Analizzato</h2>
+                    <ul id="pdf-client-data"
+                        style="list-style-type: none; padding-left: 0; font-size: 14px; line-height: 1.6;"></ul>
+                </section>
+
+                <section style="margin-top: 30px;">
+                    <h2 style="background: #f1f5f9; padding: 10px; border-radius: 5px; font-size: 16px;">Matrice
+                        Esposizione ai Rischi</h2>
+                    <p style="font-size: 12px; margin-bottom: 15px;">Scala da 0 a 10. Valori > 7 indicano un'area di
+                        forte criticità dove l'assenza di copertura assicurativa o strumenti patrimoniali può causare
+                        danni finanziari irreversibili.</p>
+                    <div id="pdf-risk-analysis"></div>
+                </section>
+
+                <section style="margin-top: 30px;">
+                    <h2 style="background: #b91c1c; color: white; padding: 10px; border-radius: 5px; font-size: 16px;">
+                        Parere Professionale del Consulente</h2>
+                    <div id="pdf-recommendations"
+                        style="font-size: 14px; line-height: 1.6; border: 1px solid #eee; padding: 15px; border-radius: 5px; background: #fafafa;">
+                    </div>
+                </section>
+
+                <div
+                    style="margin-top: 50px; text-align: center; font-size: 11px; color: #888; border-top: 1px solid #eee; padding-top: 10px;">
+                    <p>Documento generato dal sistema di auto-assessment web. Questa è un'analisi algoritmica
+                        preliminare e non sostituisce il parere definitivo in sede di consulenza fisica.</p>
+                    <p>Contatti: fveccia@aeaassicurazioni.it | Cell: 331 9290177</p>
+                </div>
+            </div>
+
+            <!-- Success Message Container -->
+            <div id="success-screen" class="hidden" style="text-align: center; padding: 30px;">
+                <i class="fa-solid fa-file-circle-check fa-4x" style="color: #10b981; margin-bottom: 20px;"></i>
+                <h2>Analisi Creata con Successo!</h2>
+                <p style="margin-bottom: 20px;">I tuoi dati sono stati elaborati dall'algoritmo di Risk Management. Ed
+                    una copia sintetica è stata inviata al consulente per la validazione umana.</p>
+
+                <div
+                    style="background: rgba(16, 185, 129, 0.1); border-radius: 12px; padding: 20px; text-align: left; margin-bottom: 30px;">
+                    <h3 style="color: #047857; margin-top: 0;"><i class="fa-solid fa-lock"></i> Cosa succede ora?</h3>
+                    <ul style="padding-left: 20px; line-height: 1.6; margin-bottom: 0;">
+                        <li><strong>1.</strong> Clicca sul pulsante qui sotto per <strong>salvare il tuo Report
+                                PDF</strong> immediato. Ti consigliamo di leggerlo attentamente.</li>
+                        <li><strong>2.</strong> Gianluca Breccia provvederà a richiamarti a breve per una consulenza
+                            esplicativa <strong>gratuita e senza impegno</strong> sulle priorità emerse.</li>
+                    </ul>
+                </div>
+
+                <div id="download-btn-container" style="margin-bottom: 30px;">
+                    <!-- Bottone inserito da JS -->
+                </div>
+
+                <a href="index.html" class="btn btn-secondary"
+                    style="display: block; width: max-content; margin: 0 auto;">Torna alla Home</a>
+            </div>
+
+            <footer
+                style="margin-top:30px;padding-top:20px;border-top:1px solid #e2e8f0;text-align:center;font-size:0.8rem;color:#a0aec0;line-height:1.6;">
+                <p><i class="fa-solid fa-shield-halved" style="color:#9e1b21;"></i> <strong>Gianluca Breccia</strong> –
+                    Consulente Assicurativo IVASS</p>
+                <p style="margin-top:6px;font-size:0.75rem;">Le informazioni fornite sono trattate solo per scopi
+                    pre-parziali come da indicazioni GDPR.</p>
+            </footer>
+        </div>
+    </main>
+
+    <script src="questionario.js"></script>
+</body>
+
+</html>
